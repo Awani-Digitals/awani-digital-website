@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Handshake } from "lucide-react";
+import { MoveRight } from "lucide-react";
 const navLinks = [
   {
     name: "Home",
@@ -65,7 +65,7 @@ const Navbar = () => {
           </ul>
 
           <button className="bg-primary text-secondary rounded-md  px-4 py-2 font-medium flex items-center gap-2 hover:scale-105 transition-transform">
-            Reach Out <Handshake size={20} />
+            Send A Brief <MoveRight size={20} />
           </button>
         </div>
       </div>

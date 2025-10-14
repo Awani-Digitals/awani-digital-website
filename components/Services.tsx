@@ -56,7 +56,7 @@ const serviceData = [
 
 const Services = () => {
   return (
-    <div className="w-full bg-background grid place-items-center ">
+    <div className="w-full  our_services grid place-items-center ">
       <div className="max-w-[1200px] w-full flex flex-col gap-10 items-center py-20">
         <h1 className=" flex gap-2 px-4 mb-4 items-center text-sm font-semibold text-primary uppercase w-full  ">
           {" "}
@@ -65,7 +65,7 @@ const Services = () => {
 
         <div className="flex flex-col items-center gap-5">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 text-center ">
-            What Can We Do
+            What We Can Do
             <span className="block text-primary text-center ">For You</span>
           </h1>
           <motion.div

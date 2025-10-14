@@ -498,8 +498,11 @@ export function SpiralAnimation() {
   }, [dimensions]);
 
   return (
-    <div className="relative w-full h-full">
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
+    <div className="relative bg-transparent w-full h-full">
+      <canvas
+        ref={canvasRef}
+        className="absolute bg-transparent inset-0 w-full h-full"
+      />
     </div>
   );
 }

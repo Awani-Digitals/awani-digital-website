@@ -11,7 +11,7 @@ const ServicesCard = ({
   lists: string[];
 }) => {
   return (
-    <div className="bg-secondary rounded-md flex flex-col items-center gap-6 px-10 py-10 text-black justify-between shadow-lg shadow-white/30 hover:scale-105 transition-transform duration-300">
+    <div className="bg-secondary rounded-md flex flex-col items-center gap-6 px-10 py-10 text-black justify-between shadow-lg shadow-primary/30 hover:scale-105 transition-transform duration-300">
       <span className="rounded-full p-3 bg-primary grid place-items-center text-white ">
         {icon}
       </span>
