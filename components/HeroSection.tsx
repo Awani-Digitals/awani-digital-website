@@ -55,9 +55,9 @@ const HeroSection = () => {
           "
         >
           <div>
-            <Image width={500} height={100} src="/AwaniSvg2.svg" alt="Logo" />
+            <Image width={700} height={100} src="/AwaniSvg2.svg" alt="Logo" />
           </div>
-          <h1 className="text-center mt-[-20px] text-2xl max-w-[500px] w-full text-secondary tracking-[0.2em] ">
+          <h1 className="text-center mt-[-50px] text-4xl max-w-[800px] w-full text-secondary tracking-[0.2em] ">
             Marketing Solutions For Your Brand
           </h1>
 

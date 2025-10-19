@@ -17,15 +17,15 @@ const WorksCard = ({
     <div className=" flex flex-col rounded-lg gap-3 pb-2 bg-secondary ">
       <div className="w-full">
         <Image
-          className="aspect-video w-full object-cover rounded-lg "
+          className="aspect-video w-full object-cover rounded-t-lg "
           alt={text}
           src={image}
           width={500}
           height={200}
         />
       </div>
-      <div className="w-full py-5 px-7">
-        <p className=" font-semibold w-full ">{text}</p>
+      <div className="w-full py-5 pt-3 px-7">
+        <p className=" font-medium w-full ">{text}</p>
 
         <div className="w-full flex justify-between items-center mt-4 text-sm font-medium text-gray-500 ">
           <div className="w-full flex font-extralight  gap-2 ">

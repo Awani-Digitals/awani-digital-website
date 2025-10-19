@@ -2,8 +2,10 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { MoveRight } from "lucide-react";
+
 const navLinks = [
   {
     name: "Home",
@@ -33,6 +35,10 @@ const navLinks = [
 ];
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  // Check if current route is home
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,7 +50,7 @@ const Navbar = () => {
   return (
     <div
       className={`w-full fixed top-0 left-0 grid place-items-center  px-5 font-sans transition-colors duration-300 z-30 ${
-        scrolled ? "bg-background shadow-md" : "bg-transparent"
+        !scrolled && isHome ? "bg-transparent" : " bg-background shadow-md "
       }`}
     >
       <div className="text-white max-w-[1200px] w-full py-4 flex justify-between items-center gap-5">
@@ -53,10 +59,14 @@ const Navbar = () => {
         </div>
 
         <div className="flex gap-10 items-center">
-          <ul className="flex gap-5 items-center">
+          <ul className={`flex gap-5 items-center  `}>
             {navLinks.map((link) => (
               <li
-                className={`${scrolled ? "text-secondary" : "text-secondary"}`}
+                className={`${scrolled ? "text-secondary" : "text-secondary"} ${
+                  pathname === link.path
+                    ? "border-b-1 border-primary "
+                    : "border-0"
+                } hover:text-primary `}
                 key={link.name}
               >
                 <Link href={link.path}>{link.name}</Link>
