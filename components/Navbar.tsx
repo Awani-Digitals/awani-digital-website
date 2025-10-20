@@ -15,15 +15,20 @@ const navLinks = [
     name: "About",
     path: "/about",
   },
-
   {
-    name: "Blogs",
-    path: "/blogs",
+    name: "Services",
+    path: "/services",
   },
   {
     name: "Works",
     path: "/works",
   },
+
+  {
+    name: "Blogs",
+    path: "/blogs",
+  },
+
   //   {
   //     name: "Events",
   //     path: "#events",
@@ -58,8 +63,8 @@ const Navbar = () => {
           <Image width={180} height={100} src="/AwaniLogo1.png" alt="Logo" />
         </div>
 
-        <div className="flex gap-10 items-center">
-          <ul className={`flex gap-5 items-center  `}>
+        <div className="flex gap-14 items-center">
+          <ul className={`flex gap-8 items-center  `}>
             {navLinks.map((link) => (
               <li
                 className={`${scrolled ? "text-secondary" : "text-secondary"} ${
