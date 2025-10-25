@@ -28,9 +28,9 @@ const HeroSection = () => {
   return (
     <div className=" w-full h-full overflow-hidden bg-transparent   ">
       {/* Spiral Animation */}
-      <div className="absolute bg-transparent inset-0 z-10 ">
+      {/* <div className="absolute bg-transparent inset-0 z-10 ">
         <SpiralAnimation />
-      </div>
+      </div> */}
 
       {/* Simple Elegant Text Button with Pulsing Effect */}
       <div
@@ -49,20 +49,26 @@ const HeroSection = () => {
         </span> */}
         <div
           className="
-            text-white text-2xl  uppercase flex flex-col items-center font-extralight
+            text-white text-2xl  flex flex-col items-center
             transition-all duration-700
-            hover:tracking-[0.1em]
+            
           "
         >
-          <div>
+          {/* <div>
             <Image width={700} height={100} src="/AwaniSvg2.svg" alt="Logo" />
-          </div>
-          <h1 className="text-center mt-[-50px] text-4xl max-w-[800px] w-full text-secondary tracking-[0.2em] ">
-            Marketing Solutions For Your Brand
+          </div> */}
+          <h1 className="text-center mt-[-50px] text-[65px] max-w-[800px] w-full text-secondary capitalize font-bold tracking-wide leading-20  ">
+            It’s Time your <span className="text-primary">Marketing</span> spoke
+            with one voice
           </h1>
+          <h2 className="max-w-[800px] text-lg w-full text-center mt-7 font-medium ">
+            At Awani Digitals, we craft integrated marketing experiences that
+            connect people, build brands, and drive measurable results across
+            every touchpoint.
+          </h2>
 
-          <button className="bg-primary text-secondary rounded-md mt-10 text-base px-4 py-2 font-medium flex items-center gap-2 hover:scale-105 transition-transform">
-            Send A Brief <MoveRight size={20} />
+          <button className="bg-primary text-secondary rounded-md mt-10 text-base px-7 py-3 font-medium flex items-center gap-2 hover:scale-105 transition-transform">
+            Talk To Us <MoveRight size={20} />
           </button>
           {/* <div className="flex gap-7 mt-10 items-center">
             <a

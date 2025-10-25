@@ -12,12 +12,15 @@ import {
   Rocket,
 } from "lucide-react";
 import { PiStrategyFill } from "react-icons/pi";
+import { FaStar } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
 
 const serviceData = [
   {
     title: "Digital Marketing & Campaigns",
-    text: "Strategic paid campaigns across search, social, and display networks to drive qualified traffic and conversions.",
     icon: <Presentation />,
+    summary:
+      "We turn strategy into stories that travel. By blending data, creativity, and precision, we deliver campaigns that connect, convert, and endure. Every click, view, and share is guided by insight and designed for impact. ",
     lists: [
       "Social Media Management",
       "Social Media Campaigns",
@@ -27,8 +30,9 @@ const serviceData = [
   },
   {
     title: "⁠Content & Brand Development",
-    text: "Strategic paid campaigns across search, social, and display networks to drive qualified traffic and conversions.",
     icon: <Blocks />,
+    summary:
+      "Great brands are built on great stories. We craft the language, visuals, and voice that make yours unforgettable by shaping identities that stand out, inspire trust, and grow stronger with every interaction.",
     lists: [
       "Content Strategy",
       "Brand Strategy",
@@ -38,8 +42,9 @@ const serviceData = [
   },
   {
     title: "Experience & Design",
-    text: "Strategic paid campaigns across search, social, and display networks to drive qualified traffic and conversions.",
     icon: <Component />,
+    summary:
+      "Design is how your brand feels in motion. We blend beauty, function, and technology to shape digital products and immersive interfaces that create seamless experiences people remember and return to.",
     lists: [
       "UI/UX Design",
       "Website Design & Development",
@@ -49,8 +54,9 @@ const serviceData = [
   },
   {
     title: "Traditional & Experiential Marketing",
-    text: "Strategic paid campaigns across search, social, and display networks to drive qualified traffic and conversions.",
     icon: <Percent />,
+    summary:
+      "Some stories deserve to be felt, not just seen. We bring brands to life through experiences that touch hearts and drive engagement. From activations and events to the big screens and city lights, we create moments that stay with people long after they happen.",
     lists: [
       "Event Marketing",
       "Experiential Marketing (Brand Activations, Pop-Ups, Product Launches)",
@@ -75,6 +81,63 @@ const approach = [
     title: "Execution",
     text: "Tactical implementation across channels with continuous optimization.",
     icon: <Rocket size={40} />,
+  },
+];
+
+export const TestimonialCard = ({
+  starNo,
+  content,
+  name,
+  position,
+}: {
+  starNo: number;
+  content: string;
+  name: string;
+  position: string;
+}) => {
+  return (
+    <div className="bg-[#20201e] p-8 rounded-xl">
+      <div className="flex items-center gap-1 text-[#f73444] mb-4">
+        {Array.from({ length: starNo }, (_, i) => (
+          <FaStar />
+        ))}
+      </div>
+      <p className="italic mb-6 opacity-90">{content}</p>
+      <div className="flex items-center">
+        <div className="w-10 h-10 grid place-items-center bg-gray-500 rounded-full mr-4">
+          <FaUser size={20} />
+        </div>
+        <div>
+          <h4 className="font-bold">{name}</h4>
+          <p className="text-sm opacity-75">{position}</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const testimonials = [
+  {
+    starNo: 5,
+    content:
+      "Awani Digitals transformed our digital presence. Their strategic approach helped us increase our conversion rate by 45% in just three months.",
+    name: "Sarah Johnson",
+    position: "CMO TechFusion",
+  },
+  {
+    starNo: 4,
+    content:
+      "Awani Digitals transformed our digital presence. Their strategic approach helped us increase our conversion rate by 45% in just three months.",
+    name: "Sarah Johnson",
+    position: "CMO TechFusion",
+  },
+
+  {
+    starNo: 5,
+    content:
+      "Awani Digitals transformed our digital presence. Their strategic approach helped us increase our conversion rate by 45% in just three months.",
+    name: "Sarah Johnson",
+    position: "CMO TechFusion",
   },
 ];
 
@@ -128,10 +191,7 @@ export const FullServices = () => {
                   {s.icon}
                 </div>
                 <h3 className="text-xl font-bold mb-3">{s.title}</h3>
-                <p className="opacity-75 mb-4">
-                  Strategic paid campaigns across search, social, and display
-                  networks to drive qualified traffic and conversions.
-                </p>
+                <p className="opacity-75 mb-4">{s.summary}</p>
 
                 <ul className="list-disc marker:text-primary marker:text-lg list-inside flex flex-col gap-2 text-left  w-full">
                   {s.lists.map((item, index) => (
@@ -231,74 +291,9 @@ export const FullServices = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="bg-[#20201e] p-8 rounded-xl">
-                <div className="flex items-center gap-1 text-[#f73444] mb-4">
-                  <span className="material-symbols-outlined">star</span>
-                  <span className="material-symbols-outlined">star</span>
-                  <span className="material-symbols-outlined">star</span>
-                  <span className="material-symbols-outlined">star</span>
-                  <span className="material-symbols-outlined">star</span>
-                </div>
-                <p className="italic mb-6 opacity-90">
-                  "PulseMarketing transformed our digital presence. Their
-                  strategic approach helped us increase our conversion rate by
-                  45% in just three months."
-                </p>
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-gray-500 rounded-full mr-4"></div>
-                  <div>
-                    <h4 className="font-bold">Sarah Johnson</h4>
-                    <p className="text-sm opacity-75">CMO, TechFusion Inc.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-[#20201e] p-8 rounded-xl">
-                <div className="flex items-center gap-1 text-[#f73444] mb-4">
-                  <span className="material-symbols-outlined">star</span>
-                  <span className="material-symbols-outlined">star</span>
-                  <span className="material-symbols-outlined">star</span>
-                  <span className="material-symbols-outlined">star</span>
-                  <span className="material-symbols-outlined">star</span>
-                </div>
-                <p className="italic mb-6 opacity-90">
-                  "The team's data-driven approach to our social media strategy
-                  completely revitalized our brand. We've seen a 78% increase in
-                  engagement and a substantial boost in sales."
-                </p>
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-gray-500 rounded-full mr-4"></div>
-                  <div>
-                    <h4 className="font-bold">Michael Torres</h4>
-                    <p className="text-sm opacity-75">Founder, Urban Threads</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-[#20201e] p-8 rounded-xl">
-                <div className="flex items-center gap-1 text-[#f73444] mb-4">
-                  <span className="material-symbols-outlined">star</span>
-                  <span className="material-symbols-outlined">star</span>
-                  <span className="material-symbols-outlined">star</span>
-                  <span className="material-symbols-outlined">star</span>
-                  <span className="material-symbols-outlined">star</span>
-                </div>
-                <p className="italic mb-6 opacity-90">
-                  "Working with PulseMarketing has been a game-changer. Their
-                  SEO and content strategy increased our organic traffic by 156%
-                  year-over-year, significantly reducing our cost per
-                  acquisition."
-                </p>
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-gray-500 rounded-full mr-4"></div>
-                  <div>
-                    <h4 className="font-bold">Jennifer Chen</h4>
-                    <p className="text-sm opacity-75">
-                      Marketing Director, Bloom Wellness
-                    </p>
-                  </div>
-                </div>
-              </div>
+              {testimonials.map((t, index) => (
+                <TestimonialCard key={index} {...t} />
+              ))}
             </div>
           </div>
         </section>

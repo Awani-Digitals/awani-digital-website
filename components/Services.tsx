@@ -15,6 +15,8 @@ const serviceData = [
   {
     title: "Digital Marketing & Campaigns",
     icon: <Presentation />,
+    summary:
+      "We turn strategy into stories that travel. By blending data, creativity, and precision, we deliver campaigns that connect, convert, and endure. Every click, view, and share is guided by insight and designed for impact. ",
     lists: [
       "Social Media Management",
       "Social Media Campaigns",
@@ -25,6 +27,8 @@ const serviceData = [
   {
     title: "⁠Content & Brand Development",
     icon: <Blocks />,
+    summary:
+      "Great brands are built on great stories. We craft the language, visuals, and voice that make yours unforgettable by shaping identities that stand out, inspire trust, and grow stronger with every interaction.",
     lists: [
       "Content Strategy",
       "Brand Strategy",
@@ -35,6 +39,8 @@ const serviceData = [
   {
     title: "Experience & Design",
     icon: <Component />,
+    summary:
+      "Design is how your brand feels in motion. We blend beauty, function, and technology to shape digital products and immersive interfaces that create seamless experiences people remember and return to.",
     lists: [
       "UI/UX Design",
       "Website Design & Development",
@@ -45,6 +51,8 @@ const serviceData = [
   {
     title: "Traditional & Experiential Marketing",
     icon: <Percent />,
+    summary:
+      "Some stories deserve to be felt, not just seen. We bring brands to life through experiences that touch hearts and drive engagement. From activations and events to the big screens and city lights, we create moments that stay with people long after they happen.",
     lists: [
       "Event Marketing",
       "Experiential Marketing (Brand Activations, Pop-Ups, Product Launches)",
@@ -83,6 +91,7 @@ const Services = () => {
               title={service.title}
               icon={service.icon}
               lists={service.lists}
+              summary={service.summary}
             />
           ))}
           <button className="bg-primary rounded-md grid place-items-center p-3 text-secondary ">

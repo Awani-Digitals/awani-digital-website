@@ -45,8 +45,8 @@ body {
 }
 
 .heroBG {
-  background-image: linear-gradient(to bottom, #000000d2, #000000c9),
-    url("/AwaniPattern2.png");
+  background-image: linear-gradient(to bottom, #00000099, #00000090),
+    url("/AwaniPattern2c.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
