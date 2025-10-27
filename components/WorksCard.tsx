@@ -6,11 +6,15 @@ const WorksCard = ({
   image,
   text,
   sections,
+  title,
+  industry,
   link,
 }: {
   image: string;
   text: string;
   sections: string[];
+  title: string;
+  industry: string;
   link: string;
 }) => {
   return (
@@ -24,18 +28,21 @@ const WorksCard = ({
           height={200}
         />
       </div>
-      <div className="w-full py-5 pt-3 px-7">
-        <p className=" font-medium w-full ">{text}</p>
+      <div className="w-full py-5 pt-0 px-7">
+        <h1 className=" text-lg flex w-full justify-between items-center font-semibold mb-1 ">
+          {title}{" "}
+          <span className="text-gray-500 text-[10px] ">({industry})</span>
+        </h1>
+        <p className=" text-justify leading-5.5 w-full text-[15px] ">{text}</p>
 
-        <div className="w-full flex justify-between items-center mt-4 text-sm font-medium text-gray-500 ">
-          <div className="w-full flex font-extralight  gap-2 ">
-            {sections.map((S, index) => (
-              <span key={index}>{S}</span>
-            ))}
+        <div className="w-full flex justify-between items-center mt-7 text-xs font-medium text-gray-500 ">
+          <div className="w-full flex font-extralight gap-1 ">
+            <span>{sections[0]}</span>
+            <span>{sections[1]}</span>
           </div>
 
           <a
-            className="flex items-center text-right gap-1 w-[200px] text-primary font-semibold justify-end "
+            className="flex items-center text-right gap-1 w-[150px] text-primary font-semibold justify-end "
             href="http://"
             target="_blank"
             rel="noopener noreferrer"
