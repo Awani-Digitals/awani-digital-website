@@ -20,12 +20,12 @@ const navLinks = [
     path: "/services",
   },
   {
-    name: "Works",
+    name: "Our Works",
     path: "/works",
   },
 
   {
-    name: "Blogs",
+    name: "Our Blogs",
     path: "/blogs",
   },
 
@@ -44,6 +44,7 @@ const Navbar = () => {
 
   // Check if current route is home
   const isHome = pathname === "/";
+  const isWorks = pathname === "/works";
 
   useEffect(() => {
     const handleScroll = () => {

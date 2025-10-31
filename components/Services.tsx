@@ -11,7 +11,7 @@ import {
 import { motion } from "framer-motion";
 import ServicesCard from "./ServicesCard";
 
-const serviceData = [
+export const serviceData = [
   {
     title: "Digital Marketing & Campaigns",
     icon: <Presentation />,
@@ -21,7 +21,11 @@ const serviceData = [
       "Social Media Management",
       "Social Media Campaigns",
       "Email Marketing",
-      "Influencer Marketing",
+      "Influencer Management",
+      "Paid Advertising (PPC)",
+      "SEO/SEM",
+      "Market Research",
+      "Digital Strategy",
     ],
   },
   {
@@ -34,6 +38,8 @@ const serviceData = [
       "Brand Strategy",
       "Branding (Visual Identity, Messaging, Collateral)",
       "Storytelling & Copywriting",
+      "PR Services",
+      "Creative Direction",
     ],
   },
   {
@@ -58,6 +64,7 @@ const serviceData = [
       "Experiential Marketing (Brand Activations, Pop-Ups, Product Launches)",
       "TV/Radio Advertising",
       "Billboard Advertising",
+      "Outdoor & Print Media",
     ],
   },
 ];

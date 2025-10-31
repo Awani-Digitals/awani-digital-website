@@ -14,57 +14,58 @@ import {
 import { PiStrategyFill } from "react-icons/pi";
 import { FaStar } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
+import { serviceData } from "@/components/Services";
 
-const serviceData = [
-  {
-    title: "Digital Marketing & Campaigns",
-    icon: <Presentation />,
-    summary:
-      "We turn strategy into stories that travel. By blending data, creativity, and precision, we deliver campaigns that connect, convert, and endure. Every click, view, and share is guided by insight and designed for impact. ",
-    lists: [
-      "Social Media Management",
-      "Social Media Campaigns",
-      "Email Marketing",
-      "Influencer Marketing",
-    ],
-  },
-  {
-    title: "⁠Content & Brand Development",
-    icon: <Blocks />,
-    summary:
-      "Great brands are built on great stories. We craft the language, visuals, and voice that make yours unforgettable by shaping identities that stand out, inspire trust, and grow stronger with every interaction.",
-    lists: [
-      "Content Strategy",
-      "Brand Strategy",
-      "Branding (Visual Identity, Messaging, Collateral)",
-      "Storytelling & Copywriting",
-    ],
-  },
-  {
-    title: "Experience & Design",
-    icon: <Component />,
-    summary:
-      "Design is how your brand feels in motion. We blend beauty, function, and technology to shape digital products and immersive interfaces that create seamless experiences people remember and return to.",
-    lists: [
-      "UI/UX Design",
-      "Website Design & Development",
-      "Mobile App Development",
-      "Visual Design & Motion Graphics",
-    ],
-  },
-  {
-    title: "Traditional & Experiential Marketing",
-    icon: <Percent />,
-    summary:
-      "Some stories deserve to be felt, not just seen. We bring brands to life through experiences that touch hearts and drive engagement. From activations and events to the big screens and city lights, we create moments that stay with people long after they happen.",
-    lists: [
-      "Event Marketing",
-      "Experiential Marketing (Brand Activations, Pop-Ups, Product Launches)",
-      "TV/Radio Advertising",
-      "Billboard Advertising",
-    ],
-  },
-];
+// const serviceData = [
+//   {
+//     title: "Digital Marketing & Campaigns",
+//     icon: <Presentation />,
+//     summary:
+//       "We turn strategy into stories that travel. By blending data, creativity, and precision, we deliver campaigns that connect, convert, and endure. Every click, view, and share is guided by insight and designed for impact. ",
+//     lists: [
+//       "Social Media Management",
+//       "Social Media Campaigns",
+//       "Email Marketing",
+//       "Influencer Marketing",
+//     ],
+//   },
+//   {
+//     title: "⁠Content & Brand Development",
+//     icon: <Blocks />,
+//     summary:
+//       "Great brands are built on great stories. We craft the language, visuals, and voice that make yours unforgettable by shaping identities that stand out, inspire trust, and grow stronger with every interaction.",
+//     lists: [
+//       "Content Strategy",
+//       "Brand Strategy",
+//       "Branding (Visual Identity, Messaging, Collateral)",
+//       "Storytelling & Copywriting",
+//     ],
+//   },
+//   {
+//     title: "Experience & Design",
+//     icon: <Component />,
+//     summary:
+//       "Design is how your brand feels in motion. We blend beauty, function, and technology to shape digital products and immersive interfaces that create seamless experiences people remember and return to.",
+//     lists: [
+//       "UI/UX Design",
+//       "Website Design & Development",
+//       "Mobile App Development",
+//       "Visual Design & Motion Graphics",
+//     ],
+//   },
+//   {
+//     title: "Traditional & Experiential Marketing",
+//     icon: <Percent />,
+//     summary:
+//       "Some stories deserve to be felt, not just seen. We bring brands to life through experiences that touch hearts and drive engagement. From activations and events to the big screens and city lights, we create moments that stay with people long after they happen.",
+//     lists: [
+//       "Event Marketing",
+//       "Experiential Marketing (Brand Activations, Pop-Ups, Product Launches)",
+//       "TV/Radio Advertising",
+//       "Billboard Advertising",
+//     ],
+//   },
+// ];
 
 const approach = [
   {
@@ -190,8 +191,8 @@ export const FullServices = () => {
                 <div className="w-12 h-12 bg-[#f73444] rounded-full flex items-center justify-center mb-6">
                   {s.icon}
                 </div>
-                <h3 className="text-xl font-bold mb-3">{s.title}</h3>
-                <p className="opacity-75 mb-4">{s.summary}</p>
+                <h3 className="text-lg font-bold mb-3">{s.title}</h3>
+                <p className="opacity-75 text-sm mb-4">{s.summary}</p>
 
                 <ul className="list-disc marker:text-primary marker:text-lg list-inside flex flex-col gap-2 text-left  w-full">
                   {s.lists.map((item, index) => (

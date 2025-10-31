@@ -45,7 +45,16 @@ body {
 }
 
 .heroBG {
-  background-image: linear-gradient(to bottom, #00000099, #00000090),
+  background-image: linear-gradient(360deg, #000000c5, #000000cb),
+    url("/AwaniPattern2c.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  /* opacity: 0.5; */
+}
+
+.hBG {
+  background-image: linear-gradient(360deg, #000000c5, #000000cb),
     url("/AwaniPattern2c.png");
   background-repeat: no-repeat;
   background-position: center;
@@ -58,3 +67,22 @@ body {
   display: grid;
   grid-template-columns: ;
 } */
+
+/* Custom bullet list with image */
+.custom-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.custom-list li {
+  padding-left: 32px; /* space for the image */
+  background-image: url("/AwaniSticker2.png"); /* <-- put your image in /public/images */
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 17px;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+.custom-list li:hover {
+  transform: translateX(4px);
+  opacity: 0.95;
+}

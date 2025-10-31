@@ -6,35 +6,7 @@ import { motion } from "framer-motion";
 import WorksCard from "./WorksCard";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-
-const worksData = [
-  {
-    title: "Sagad Farms",
-    industry: "Agriculture / FMCG",
-    image: "/sagad1.jpg",
-    text: "We developed a holistic social media marketing strategy built around storytelling, authenticity, and consistency.",
-    sections: [
-      "Social Media Management",
-      "Social Media Campaigns",
-      "Paid Advertising (PPC)",
-      "Content Strategy",
-    ],
-    link: "/",
-  },
-  {
-    title: "Sagad Farms",
-    industry: "Agriculture / FMCG",
-    image: "/sagad1.jpg",
-    text: "We developed a holistic social media marketing strategy built around storytelling, authenticity, and consistency.",
-    sections: [
-      "Social Media Management",
-      "Social Media Campaigns",
-      "Paid Advertising (PPC)",
-      "Content Strategy",
-    ],
-    link: "/",
-  },
-];
+import { worksData } from "@/app/Workdata/Works";
 
 const Works = () => {
   return (
@@ -59,7 +31,7 @@ const Works = () => {
         </div>
 
         <div className="w-full mt-10 grid grid-cols-1 md:grid-cols-3 gap-12">
-          {worksData.map((work, index) => (
+          {worksData.slice(0, 3).map((work, index) => (
             <WorksCard key={index} {...work} />
           ))}
         </div>

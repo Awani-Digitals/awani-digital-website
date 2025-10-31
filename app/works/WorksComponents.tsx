@@ -7,66 +7,67 @@ import WorksCard from "@/components/WorksCard";
 // import WorksCard from "./WorksCard";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { worksData } from "../Workdata/Works";
 
-const worksData = [
-  {
-    title: "Sagad Farms",
-    industry: "Agriculture / FMCG",
-    image: "/sagad1.jpg",
-    text: "We developed a holistic social media marketing strategy built around storytelling, authenticity, and consistency.",
-    sections: [
-      "Social Media Management",
-      "Social Media Campaigns",
-      "Paid Advertising (PPC)",
-      "Content Strategy",
-    ],
-    link: "/",
-  },
-  {
-    title: "Sagad Farms",
-    industry: "Agriculture / FMCG",
-    image: "/sagad1.jpg",
-    text: "We developed a holistic social media marketing strategy built around storytelling, authenticity, and consistency.",
-    sections: [
-      "Social Media Management",
-      "Social Media Campaigns",
-      "Paid Advertising (PPC)",
-      "Content Strategy",
-    ],
-    link: "/",
-  },
-  {
-    title: "Sagad Farms",
-    industry: "Agriculture / FMCG",
-    image: "/sagad1.jpg",
-    text: "We developed a holistic social media marketing strategy built around storytelling, authenticity, and consistency.",
-    sections: [
-      "Social Media Management",
-      "Social Media Campaigns",
-      "Paid Advertising (PPC)",
-      "Content Strategy",
-    ],
-    link: "/",
-  },
-  {
-    title: "Sagad Farms",
-    industry: "Agriculture / FMCG",
-    image: "/sagad1.jpg",
-    text: "We developed a holistic social media marketing strategy built around storytelling, authenticity, and consistency.",
-    sections: [
-      "Social Media Management",
-      "Social Media Campaigns",
-      "Paid Advertising (PPC)",
-      "Content Strategy",
-    ],
-    link: "/",
-  },
-];
+// const worksData = [
+//   {
+//     title: "Sagad Farms",
+//     industry: "Agriculture / FMCG",
+//     image: "/sagad1.jpg",
+//     text: "We developed a holistic social media marketing strategy built around storytelling, authenticity, and consistency.",
+//     sections: [
+//       "Social Media Management",
+//       "Social Media Campaigns",
+//       "Paid Advertising (PPC)",
+//       "Content Strategy",
+//     ],
+//     link: "/",
+//   },
+//   {
+//     title: "Sagad Farms",
+//     industry: "Agriculture / FMCG",
+//     image: "/sagad1.jpg",
+//     text: "We developed a holistic social media marketing strategy built around storytelling, authenticity, and consistency.",
+//     sections: [
+//       "Social Media Management",
+//       "Social Media Campaigns",
+//       "Paid Advertising (PPC)",
+//       "Content Strategy",
+//     ],
+//     link: "/",
+//   },
+//   {
+//     title: "Sagad Farms",
+//     industry: "Agriculture / FMCG",
+//     image: "/sagad1.jpg",
+//     text: "We developed a holistic social media marketing strategy built around storytelling, authenticity, and consistency.",
+//     sections: [
+//       "Social Media Management",
+//       "Social Media Campaigns",
+//       "Paid Advertising (PPC)",
+//       "Content Strategy",
+//     ],
+//     link: "/",
+//   },
+//   {
+//     title: "Sagad Farms",
+//     industry: "Agriculture / FMCG",
+//     image: "/sagad1.jpg",
+//     text: "We developed a holistic social media marketing strategy built around storytelling, authenticity, and consistency.",
+//     sections: [
+//       "Social Media Management",
+//       "Social Media Campaigns",
+//       "Paid Advertising (PPC)",
+//       "Content Strategy",
+//     ],
+//     link: "/",
+//   },
+// ];
 
 const WorksCards = () => {
   return (
     <div className="w-full bg-background grid place-items-center  ">
-      <div className="max-w-[1200px] w-full flex flex-col gap-10 items-center py-20">
+      <div className="max-w-[1200px] w-full flex flex-col gap-10 items-center pt-[110px] py-20">
         <div className="flex flex-col items-center gap-5">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 text-center ">
             Results We Have
