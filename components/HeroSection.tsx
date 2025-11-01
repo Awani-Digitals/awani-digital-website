@@ -49,7 +49,7 @@ const HeroSection = () => {
         </span> */}
         <div
           className="
-            text-white text-2xl  flex flex-col items-center
+            text-white text-2xl px-4  flex flex-col items-center
             transition-all duration-700
             
           "
@@ -57,7 +57,7 @@ const HeroSection = () => {
           {/* <div>
             <Image width={700} height={100} src="/AwaniSvg2.svg" alt="Logo" />
           </div> */}
-          <h1 className="text-center mt-[-50px] text-[65px] max-w-[800px] w-full text-secondary capitalize font-bold tracking-wide leading-20  ">
+          <h1 className="text-center mt-[-50px] text-5xl lg:text-[65px] max-w-[800px] w-full text-secondary capitalize font-bold tracking-wide lg:leading-20  ">
             It’s Time your <span className="text-primary">Marketing</span> spoke
             with one voice
           </h1>

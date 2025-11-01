@@ -71,7 +71,7 @@ export const serviceData = [
 
 const Services = () => {
   return (
-    <div className="w-full  our_services grid place-items-center ">
+    <div className="w-full  our_services grid place-items-center px-4 ">
       <div className="max-w-[1200px] w-full flex flex-col gap-10 items-center py-20">
         <h1 className=" flex gap-2 px-4 mb-4 items-center text-sm font-semibold text-primary uppercase w-full  ">
           {" "}
@@ -103,7 +103,7 @@ const Services = () => {
           ))}
           <button className="bg-primary rounded-md grid place-items-center p-3 text-secondary ">
             <div className="flex gap-3 items-center hover:scale-105 transition-transform">
-              <p className="text-2xl font-semibold">Explore</p>
+              <p className=" text-lg md:text-2xl font-semibold">Explore</p>
               <MoveRight className="w-6 h-6 text-white" />
             </div>
           </button>

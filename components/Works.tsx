@@ -10,7 +10,7 @@ import { worksData } from "@/app/Workdata/Works";
 
 const Works = () => {
   return (
-    <div className="w-full bg-background grid place-items-center  ">
+    <div className="w-full bg-background grid place-items-center px-4  ">
       <div className="max-w-[1200px] w-full flex flex-col gap-10 items-center py-20">
         <h1 className=" flex gap-2 px-4 mb-4 items-center text-sm font-semibold text-primary uppercase w-full  ">
           {" "}
