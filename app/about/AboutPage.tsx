@@ -151,30 +151,9 @@ const AboutPage: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-screen w-full bg-gradient-to-br from-blue-50 via-white to-purple-50 py-20 px-4 overflow-hidden relative"
+      className="min-h-screen w-full bg-gradient-to-br from-blue-50 via-white to-purple-50 py-20 lg:px-4 overflow-hidden relative"
     >
-      {/* Decorative background elements */}
-      {/* <motion.div
-        className="absolute top-20 left-10 w-64 h-64 rounded-full bg-blue-200/20 blur-3xl"
-        style={{ y: y1 }}
-      />
-      <motion.div
-        className="absolute bottom-20 right-10 w-80 h-80 rounded-full bg-purple-200/20 blur-3xl"
-        style={{ y: y2 }}
-      /> */}
-
-      {/* Stickers */}
-      {/* {stickers.map((sticker, index) => (
-        <Sticker
-          key={index}
-          icon={sticker.icon}
-          position={sticker.position}
-          rotation={sticker.rotation}
-          delay={sticker.delay}
-        />
-      ))} */}
-
-      <div className="container mx-auto max-w-[1200px] w-full relative z-20">
+      <div className="container mx-auto max-w-[1200px] w-full px-4 lg:px-0 relative z-20">
         {/* Header */}
         <motion.div
           className="text-center w-full mb-16 flex flex-col "
@@ -347,7 +326,7 @@ const AboutPage: React.FC = () => {
         {/* Our Team */}
       </div>
 
-      <div className="w-full flex flex-col items-center bg-background py-[80px] rounded-[25px] ">
+      <div className="w-full flex flex-col items-center bg-background px-4 py-[80px] rounded-[25px] ">
         <div className="w-full max-w-[1200px]  ">
           <motion.div
             className="text-center w-full mb-16 flex flex-col "

@@ -5,7 +5,7 @@ import WorksCards from "./WorksComponents";
 
 const WorkPage = () => {
   return (
-    <div className="mt-7">
+    <div className="mt-7 ">
       <WorksCards />
     </div>
   );

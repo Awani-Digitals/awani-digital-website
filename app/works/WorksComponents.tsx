@@ -66,7 +66,7 @@ import { worksData } from "../Workdata/Works";
 
 const WorksCards = () => {
   return (
-    <div className="w-full bg-background grid place-items-center  ">
+    <div className="w-full bg-background px-4 grid place-items-center  ">
       <div className="max-w-[1200px] w-full flex flex-col gap-10 items-center pt-[110px] py-20">
         <div className="flex flex-col items-center gap-5">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 text-center ">
@@ -82,7 +82,7 @@ const WorksCards = () => {
           />
         </div>
 
-        <div className="w-full text-gray-100 text-lg flex justify-center items-center px-4 md:px-0 mt-7 -mb-7 ">
+        <div className="w-full text-gray-100 text-lg flex justify-center items-center   mt-7 -mb-7 ">
           <p className="text-center max-w-[1000px] w-full ">
             Every project starts with a vision — one driven by creativity,
             strategy, and purpose. Founded on the belief that great marketing
