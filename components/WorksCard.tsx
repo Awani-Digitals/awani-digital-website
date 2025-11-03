@@ -19,24 +19,35 @@ const WorksCard = ({
   blob: string;
 }) => {
   return (
-    <div className=" flex flex-col rounded-lg gap-3 pb-2 bg-secondary ">
-      <div className="w-full">
-        <Image
-          className="aspect-video w-full object-cover rounded-t-lg "
-          alt={solution}
-          src={images[0]}
-          width={500}
-          height={200}
-        />
+    <div className=" flex max-w-[350px] w-full flex-col rounded-lg gap-3 pb-2 bg-secondary ">
+      {/* image with dark overlay and centered text */}
+      <div className="w-full relative rounded-t-lg overflow-hidden">
+        <div className="relative w-full aspect-video">
+          <Image
+            src={images[0]}
+            alt={solution}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover"
+          />
+        </div>
+
+        <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-center px-4">
+          <div>
+            <h3 className="text-white text-2xl font-bold">{title}</h3>
+            <p className="text-sm text-white/90 mt-1">{industry}</p>
+          </div>
+        </div>
       </div>
-      <div className="w-full py-5 pt-0 px-7">
-        <h1 className=" text-lg flex w-full justify-between items-center font-semibold mb-1 ">
+
+      <div className="w-full py-5 pt-0 px-4">
+        {/* <h1 className=" text-lg flex w-full justify-between items-center font-semibold mb-1 ">
           {title}{" "}
           <span className="text-gray-500 text-[10px] ">({industry})</span>
-        </h1>
-        <p className=" leading-5.5 w-full text-[15px] ">{solution}</p>
+        </h1> */}
+        <p className=" w-full text-sm ">{solution}</p>
 
-        <div className="w-full flex justify-between items-center mt-7 text-xs font-medium text-gray-500 ">
+        <div className="w-full flex justify-between items-center mt-4 text-xs font-medium text-gray-500 ">
           <div className="w-full flex font-extralight gap-1 ">
             <span>{sections[0]}</span>
             <span>{sections[1]}</span>

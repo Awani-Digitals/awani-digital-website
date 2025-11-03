@@ -30,7 +30,7 @@ const Works = () => {
           />
         </div>
 
-        <div className="w-full mt-10 grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="w-full mt-10 flex justify-center gap-x-8 gap-y-10 flex-wrap ">
           {worksData.slice(0, 3).map((work, index) => (
             <WorksCard key={index} {...work} />
           ))}
@@ -39,7 +39,7 @@ const Works = () => {
         <div className="w-full grid place-items-center ">
           <Link
             className="bg-white text-primary rounded-md px-7 py-2.5 text-lg font-medium flex justify-center items-center gap-2 hover:bg-primary hover:text-white "
-            href={"/"}
+            href={"/works"}
           >
             See All <ArrowRight />
           </Link>
