@@ -1,46 +1,105 @@
+"use client";
+import { supabase } from "../app/lib/supabase";
+import { useEffect, useState } from "react";
+
 import React from "react";
 import { LibraryBig, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { BlogCard } from "./BlogCard";
 import Link from "next/link";
 
-const sampleBlogs = [
-  {
-    title: "The Future of Web Development: Trends to Watch in 2025",
-    excerpt:
-      "Explore the emerging technologies and methodologies that are reshaping how we build for the web. From AI integration to new frameworks, discover what's next.",
-    author: "Sarah Chen",
-    date: "Nov 1, 2025",
-    category: "Technology",
-    imageUrl:
-      "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=800",
-    readTime: "5 min read",
-  },
-  {
-    title: "Building Scalable Applications: Best Practices for Modern Teams",
-    excerpt:
-      "Learn the essential patterns and practices that help engineering teams build applications that can grow with your business needs.",
-    author: "Michael Torres",
-    date: "Oct 28, 2025",
-    category: "Development",
-    imageUrl:
-      "https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=800",
-    readTime: "8 min read",
-  },
-  {
-    title: "Design Systems: Creating Consistency at Scale",
-    excerpt:
-      "Discover how design systems can transform your product development process and create a unified user experience across all touchpoints.",
-    author: "Emily Rodriguez",
-    date: "Oct 25, 2025",
-    category: "Design",
-    imageUrl:
-      "https://images.pexels.com/photos/196645/pexels-photo-196645.jpeg?auto=compress&cs=tinysrgb&w=800",
-    readTime: "6 min read",
-  },
-];
+export interface BlogPost {
+  id: string;
+  title: string;
+  excerpt: string;
+  author: string;
+  published_at: string;
+  category: string;
+  image_url: string;
+  read_time: string;
+  slug: string;
+}
+// const sampleBlogs = [
+//   {
+//     title: "The Future of Web Development: Trends to Watch in 2025",
+//     excerpt:
+//       "Explore the emerging technologies and methodologies that are reshaping how we build for the web. From AI integration to new frameworks, discover what's next.",
+//     author: "Sarah Chen",
+//     date: "Nov 1, 2025",
+//     category: "Technology",
+//     imageUrl:
+//       "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=800",
+//     readTime: "5 min read",
+//   },
+//   {
+//     title: "Building Scalable Applications: Best Practices for Modern Teams",
+//     excerpt:
+//       "Learn the essential patterns and practices that help engineering teams build applications that can grow with your business needs.",
+//     author: "Michael Torres",
+//     date: "Oct 28, 2025",
+//     category: "Development",
+//     imageUrl:
+//       "https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=800",
+//     readTime: "8 min read",
+//   },
+//   {
+//     title: "Design Systems: Creating Consistency at Scale",
+//     excerpt:
+//       "Discover how design systems can transform your product development process and create a unified user experience across all touchpoints.",
+//     author: "Emily Rodriguez",
+//     date: "Oct 25, 2025",
+//     category: "Design",
+//     imageUrl:
+//       "https://images.pexels.com/photos/196645/pexels-photo-196645.jpeg?auto=compress&cs=tinysrgb&w=800",
+//     readTime: "6 min read",
+//   },
+// ];
 
 const BlogsSection = () => {
+  const [blogs, setBlogs] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetchBlogs();
+  }, []);
+
+  async function fetchBlogs() {
+    try {
+      const { data, error } = await supabase
+        .from("blog_posts")
+        .select("*")
+        .order("published_at", { ascending: false });
+
+      if (error) throw error;
+
+      const formattedBlogs =
+        data?.map((post) => ({
+          id: post.id,
+          title: post.title,
+          excerpt: post.excerpt,
+          author: post.author,
+          published_at: new Date(post.published_at).toLocaleDateString(
+            "en-US",
+            {
+              year: "numeric",
+              month: "short",
+              day: "numeric",
+            }
+          ),
+          category: post.category,
+          image_url: post.image_url,
+          read_time: post.read_time,
+          slug: post.slug,
+        })) || [];
+
+      setBlogs(formattedBlogs);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to load blogs");
+    } finally {
+      setLoading(false);
+    }
+  }
   return (
     <div className=" grid our_blog place-items-center w-full px-4 ">
       <div className="max-w-[1200px] w-full flex flex-col gap-6 items-center py-20">
@@ -63,7 +122,7 @@ const BlogsSection = () => {
         </div>
 
         <div className="w-full mt-10 flex justify-center gap-x-8 gap-y-10 flex-wrap ">
-          {sampleBlogs.slice(0, 3).map((blog, index) => (
+          {blogs.slice(0, 3).map((blog, index) => (
             <BlogCard key={index} {...blog} />
           ))}
         </div>

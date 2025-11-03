@@ -1,27 +1,36 @@
+import Link from "next/link";
+
 interface BlogCardProps {
+  id: string;
   title: string;
   excerpt: string;
   author: string;
-  date: string;
+  published_at: string;
   category: string;
-  imageUrl: string;
-  readTime: string;
+  image_url: string;
+  read_time: string;
+  slug: string;
 }
 
 export function BlogCard({
+  id,
   title,
   excerpt,
   author,
-  date,
+  published_at,
   category,
-  imageUrl,
-  readTime,
+  image_url,
+  read_time,
+  slug,
 }: BlogCardProps) {
   return (
-    <article className="group bg-[#faf5ff] rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 max-w-[350px] w-full">
+    <Link
+      href={`/blogs/${slug}`}
+      className="group bg-[#faf5ff] rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 max-w-[350px] w-full"
+    >
       <div className="relative overflow-hidden h-56">
         <img
-          src={imageUrl}
+          src={image_url}
           alt={title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
@@ -48,13 +57,13 @@ export function BlogCard({
             </div>
             <div>
               <p className="text-[#20201e] text-sm font-medium">{author}</p>
-              <p className="text-gray-500 text-xs">{date}</p>
+              <p className="text-gray-500 text-xs">{published_at}</p>
             </div>
           </div>
 
-          <span className="text-gray-500 text-xs">{readTime}</span>
+          <span className="text-gray-500 text-xs">{read_time}</span>
         </div>
       </div>
-    </article>
+    </Link>
   );
 }
