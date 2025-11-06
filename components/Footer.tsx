@@ -34,7 +34,7 @@ const Footer = () => {
     resources: [
       { name: "Blog", href: "/blogs" },
       { name: "Case Studies", href: "/case-studies" },
-      { name: "Portfolio", href: "/portfolio" },
+      { name: "Publish Blog", href: "/admin" },
       { name: "Careers", href: "/careers" },
     ],
   };
