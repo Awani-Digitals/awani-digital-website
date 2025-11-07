@@ -82,16 +82,11 @@ const WorksCards = () => {
           />
         </div>
 
-        <div className="w-full text-gray-100 text-lg flex justify-center items-center   mt-7 -mb-7 ">
+        <div className="w-full text-gray-100 text-lg flex justify-center items-center   mt-4 -mb-7 ">
           <p className="text-center max-w-[1000px] w-full ">
-            Every project starts with a vision — one driven by creativity,
-            strategy, and purpose. Founded on the belief that great marketing
-            connects people, not just products, our work tells stories that
-            inspire and deliver real results. Each campaign we create reflects
-            our founder’s commitment to authenticity and impact — blending
-            strategy with imagination to help brands stand out and stay
-            remembered. Here’s a look at some of the work that defines who we
-            are and what we stand for.
+            Every brand we work with has a story, a challenge, and a dream. Our
+            role is to bring them together through strategy and creativity that
+            make people care and take action.
           </p>
         </div>
         <div className="w-full mt-10 grid grid-cols-1 md:grid-cols-3 gap-12">

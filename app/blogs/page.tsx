@@ -57,15 +57,18 @@ const page = () => {
         <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 text-center ">
           Our Blog
         </h1>
-        <p className="text-white text-lg font-medium">
-          Stay updated with the latest trends and insights in the industry.
+        <p className="text-white max-w-[800px] text-center text-lg font-medium">
+          We share marketing perspectives, success stories, and actionable ideas
+          that help brands grow, adapt, and stay ahead in a fast-changing world.
+          Every article is written to inspire better thinking and smarter
+          execution across digital, brand, and experience.
         </p>
       </div>
       <div className="bg-white w-full grid place-items-center py-20 ">
         <div className="max-w-[1200px] w-full flex flex-col gap-10 items-center px-4 ">
-          <h1 className="text-4xl w-full font-semibold text-black mb-4 text-left">
+          {/* <h1 className="text-4xl w-full font-semibold text-black mb-4 text-left">
             Notes From the Desk, Stories Worth Sharing
-          </h1>
+          </h1> */}
 
           <div className="w-full flex justify-center gap-x-8 gap-y-10 flex-wrap ">
             {blogs.map((blog, index) => (

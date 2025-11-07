@@ -377,48 +377,47 @@ const AboutPage: React.FC = () => {
               </h2>
 
               <p className="text-gray-200 mb-6 leading-relaxed">
-                Awani Digitals is a leading integrated marketing communications
-                agency in Nigeria, helping brands grow through strategy,
-                creativity, and innovation.
+                Omolola Dada is a passionate and results-driven marketing expert
+                with a proven record of helping brands grow through creativity,
+                clarity, and measurable impact. With a decade of hands-on
+                experience and partnerships across more than 50 global brands,
+                she continues to redefine how businesses connect with audiences
+                in today’s fast-changing digital world.
               </p>
 
               <p className="text-gray-200 mb-6 leading-relaxed">
                 {" "}
-                We specialize in digital marketing, brand strategy, social media
-                management, advertising, and experiential marketing that deliver
-                measurable business results. From concept to execution, we
-                create campaigns that connect brands with people, spark
-                conversations, and drive conversion across multiple platforms.
+                As the founder of Awani Digitals, Omolola leads with purpose and
+                innovation, guiding brands toward visibility, resonance, and
+                sustainable growth. Under her leadership, the agency has become
+                known for building campaigns that tell powerful stories and
+                deliver tangible business results.
               </p>
 
               <p className="text-gray-200 mb-6 leading-relaxed">
-                Awani Digitals is a leading integrated marketing communications
-                agency in Nigeria, helping brands grow through strategy,
-                creativity, and innovation.
+                Her work goes beyond client projects. She has trained almost two
+                hundred aspiring marketers to begin successful careers, spoken
+                at several events and institutions, and created resources that
+                make marketing more accessible to business owners. In 2025,
+                Omolola was recognized by Alt Marketing School in London as one
+                of the Top 100 Marketing Professionals, honoring her dedication
+                and influence in the industry.
               </p>
 
               <p className="text-gray-200 mb-6 leading-relaxed">
                 {" "}
-                We specialize in digital marketing, brand strategy, social media
-                management, advertising, and experiential marketing that deliver
-                measurable business results. From concept to execution, we
-                create campaigns that connect brands with people, spark
-                conversations, and drive conversion across multiple platforms.
+                Omolola is also a proud member of the National Institute of
+                Marketing of Nigeria and has received multiple recognitions from
+                respected brands and organizations for excellence and thought
+                leadership in marketing.
               </p>
 
               <p className="text-gray-200 mb-8 leading-relaxed">
-                Our team of creatives and strategists helps brands stand out,
-                engage audiences, and achieve measurable growth in today’s
-                fast-changing market. We believe every brand has a story worth
-                telling, and our mission is to help you tell yours with clarity,
-                consistency, and impact across every touchpoint.
+                Her vision is simple. She believes every brand deserves to be
+                seen, understood, and remembered, and her mission is to help
+                them achieve that through strategy, creativity, and
+                authenticity.
               </p>
-
-              {/* <p className="text-gray-600 mb-8 leading-relaxed">
-              With over a decade of experience, we've helped hundreds of brands
-              establish their digital presence and connect with their audiences
-              in meaningful ways.
-            </p> */}
 
               {/* Feature list */}
               <div className="space-y-4">
@@ -461,9 +460,9 @@ const AboutPage: React.FC = () => {
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/AwaniSolo1.jpg"
+                  src="/Omolola.jpg"
                   alt="Team collaboration"
-                  className="w-full h-[500px] object-top object-cover"
+                  className="w-full h-[600px] object-top object-cover"
                   width={800}
                   height={500}
                 />
@@ -487,7 +486,7 @@ const AboutPage: React.FC = () => {
               />
 
               <motion.div
-                className="absolute top-[450px] -left-4 w-24 h-24 bg-primary/70 rounded-full opacity-50"
+                className="absolute top-[550px] -left-4 w-24 h-24 bg-primary/70 rounded-full opacity-50"
                 animate={{
                   scale: [1, 1.2, 1],
                   rotate: [0, 180, 360],

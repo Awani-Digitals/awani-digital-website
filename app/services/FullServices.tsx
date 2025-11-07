@@ -14,6 +14,8 @@ import {
 import { PiStrategyFill } from "react-icons/pi";
 import { FaStar } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
+import { AiFillBuild } from "react-icons/ai";
+import { TbRulerMeasure2 } from "react-icons/tb";
 import { serviceData } from "@/components/Services";
 
 // const serviceData = [
@@ -69,19 +71,29 @@ import { serviceData } from "@/components/Services";
 
 const approach = [
   {
-    title: "Discovery",
-    text: " Comprehensive market research and business analysis to identify opportunities.",
-    icon: <Telescope size={40} />,
+    title: "Discover and Define",
+    text: " We begin by learning about your brand, your audience, and your goals. This helps us uncover what truly sets you apart and how to position your brand for meaningful growth.",
+    icon: <Telescope size={35} />,
   },
   {
-    title: "Strategy",
-    text: "Development of a customized marketing plan aligned with your business objectives.",
-    icon: <PiStrategyFill size={40} />,
+    title: "Strategize and Plan",
+    text: "Once we understand the landscape, we design a clear roadmap. Every idea and channel choice is backed by data and insight to ensure your marketing works where it matters most.",
+    icon: <PiStrategyFill size={35} />,
   },
   {
-    title: "Execution",
-    text: "Tactical implementation across channels with continuous optimization.",
-    icon: <Rocket size={40} />,
+    title: "Create and Build",
+    text: "Here’s where ideas come alive. Our team blends strategy, storytelling, and design to create campaigns, content, and experiences that feel authentic and connect deeply with people.",
+    icon: <AiFillBuild size={35} />,
+  },
+  {
+    title: "Launch and Amplify",
+    text: "We execute with focus and precision, ensuring your message reaches the right audience at the right moment. From there, we amplify your visibility to build lasting momentum.",
+    icon: <Rocket size={35} />,
+  },
+  {
+    title: "Measure and Evolve",
+    text: "We monitor performance and continuously refine based on data and trends, ensuring your brand stays ahead.",
+    icon: <TbRulerMeasure2 size={35} />,
   },
 ];
 
@@ -157,8 +169,9 @@ export const FullServices = () => {
               Growth-Driven Brands
             </h1>
             <p className="text-lg md:text-xl opacity-80 mb-10 leading-relaxed">
-              Transform your market presence with our data-driven marketing
-              strategies designed to accelerate growth and maximize ROI.
+              Transform your brand’s presence with insight-led strategies built
+              to accelerate growth, deepen connection, and deliver measurable
+              returns.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <button className="bg-[#f73444] text-[#faf5ff] px-8 py-3 rounded-full font-medium hover:bg-opacity-90 transition-all transform hover:scale-105">
@@ -176,7 +189,7 @@ export const FullServices = () => {
         <section className=" w-full flex flex-col items-center justify-center bg-background py-20 px-4">
           <div className="text-center max-w-[1200px] w-full mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              Our <span className="text-primary">Marketing</span> Services
+              Our <span className="text-primary">Services</span>
             </h2>
             <p className="max-w-2xl mx-auto text-lg opacity-80">
               Comprehensive marketing solutions tailored to your business needs
@@ -188,19 +201,22 @@ export const FullServices = () => {
             {/* Service Card 1 */}
             {serviceData.map((s, index) => (
               <div className="bg-[#2a2a28] rounded-xl p-8 hover:transform hover:scale-105 transition-all flex flex-col justify-between  duration-300 border-t-2 border-[#f73444]">
-                <div className="w-12 h-12 bg-[#f73444] rounded-full flex items-center justify-center mb-6">
-                  {s.icon}
-                </div>
-                <h3 className="text-lg font-bold mb-3">{s.title}</h3>
-                <p className="opacity-75 text-sm mb-4">{s.summary}</p>
+                <div className="w-full flex flex-col">
+                  <div className="w-12 h-12 bg-[#f73444] rounded-full flex items-center justify-center mb-6">
+                    {s.icon}
+                  </div>
+                  <h3 className="text-lg font-bold mb-3">{s.title}</h3>
+                  <p className="opacity-75 text-sm mb-4">{s.summary}</p>
 
-                <ul className="list-disc marker:text-primary marker:text-lg list-inside flex flex-col gap-2 text-left  w-full">
-                  {s.lists.map((item, index) => (
-                    <li key={index} className="text-sm">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                  <ul className="list-disc marker:text-primary marker:text-lg list-inside flex flex-col gap-2 text-left  w-full">
+                    {s.lists.map((item, index) => (
+                      <li key={index} className="text-sm">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
                 <a
                   href="#"
                   className="inline-flex mt-6 items-center text-[#f73444] font-medium text-sm hover:underline"
@@ -222,15 +238,16 @@ export const FullServices = () => {
               Our Approach
             </h2>
             <p className="max-w-2xl mx-auto text-lg opacity-80">
-              A systematic methodology that delivers results through strategic
-              planning and execution.
+              We combine data, design, and storytelling to create marketing that
+              not only looks good but performs powerfully across every
+              touchpoint.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className=" justify-center items-center flex flex-wrap  gap-8 max-w-6xl gap-y-14 mx-auto">
             {approach.map((a, index) => (
-              <div className="text-center">
-                <div className="w-20 h-20 bg-[#f73444] rounded-full flex items-center justify-center mb-6 mx-auto transform hover:scale-110 transition-all">
+              <div className="text-center max-w-[340px] w-full ">
+                <div className="w-17 h-17 bg-[#f73444] rounded-full flex items-center justify-center mb-6 mx-auto transform hover:scale-110 transition-all">
                   {a.icon}
                 </div>
                 <h3 className="text-xl font-bold mb-3">
@@ -239,43 +256,13 @@ export const FullServices = () => {
                 <p className="opacity-75">{a.text}</p>
               </div>
             ))}
-            {/* <div className="text-center">
-              <div className="w-20 h-20 bg-[#f73444] rounded-full flex items-center justify-center mb-6 mx-auto transform hover:scale-110 transition-all">
-                <Telescope size={40} />
-              </div>
-              <h3 className="text-xl font-bold mb-3">1. Discovery</h3>
-              <p className="opacity-75">
-                Comprehensive market research and business analysis to identify
-                opportunities.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-20 h-20 bg-[#f73444] rounded-full flex items-center justify-center mb-6 mx-auto transform hover:scale-110 transition-all">
-                <span className="material-symbols-outlined text-[#faf5ff] text-3xl">
-                  landscape
-                </span>
-              </div>
-              <h3 className="text-xl font-bold mb-3">2. Strategy</h3>
-              <p className="opacity-75">
-                Development of a customized marketing plan aligned with your
-                business objectives.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-20 h-20 bg-[#f73444] rounded-full flex items-center justify-center mb-6 mx-auto transform hover:scale-110 transition-all">
-                <span className="material-symbols-outlined text-[#faf5ff] text-3xl">
-                  rocket_launch
-                </span>
-              </div>
-              <h3 className="text-xl font-bold mb-3">3. Execution</h3>
-              <p className="opacity-75">
-                Tactical implementation across channels with continuous
-                optimization.
-              </p>
-            </div> */}
           </div>
+
+          <p className="text-center w-full bg-[#2a2a28] px-6 py-8 rounded-lg text-primary mt-14 lg:text-xl text-lg ">
+            Schedule a free 30 minutes strategy session with our marketing
+            experts and discover how we can help you achieve your business
+            goals.
+          </p>
         </section>
 
         {/* Testimonials */}

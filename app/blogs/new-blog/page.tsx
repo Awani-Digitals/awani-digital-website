@@ -16,11 +16,13 @@ const ReactQuill = dynamic(() => import("react-quill-new"), {
 });
 
 const CATEGORIES = [
-  "Technology",
-  "Development",
-  "Design",
-  "Business",
-  "Tutorial",
+  "Social Media",
+  "Content",
+  "Branding & Design",
+  "Traditional",
+  "Experiential",
+  "Career",
+  "Digital Marketing",
   "News",
 ];
 
