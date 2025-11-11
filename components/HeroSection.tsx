@@ -4,6 +4,7 @@
 
 import { SpiralAnimation } from "./spiral-animation";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { Linkedin, Instagram, MoveRight } from "lucide-react";
 import { FaXTwitter } from "react-icons/fa6";
@@ -67,9 +68,12 @@ const HeroSection = () => {
             every touchpoint.
           </h2>
 
-          <button className="bg-primary text-secondary rounded-md mt-10 text-base px-7 py-3 font-medium flex items-center gap-2 hover:scale-105 transition-transform">
+          <Link
+            href="/send-brief"
+            className="bg-primary text-secondary rounded-md mt-10 text-base px-7 py-3 font-medium flex items-center gap-2 hover:scale-105 transition-transform"
+          >
             Talk To Us <MoveRight size={20} />
-          </button>
+          </Link>
           {/* <div className="flex gap-7 mt-10 items-center">
             <a
               className="rounded-full w-12 h-12 bg-white text-background  border-2 border-primary grid place-items-center  "

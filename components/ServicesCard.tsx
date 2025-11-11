@@ -1,5 +1,6 @@
 import React from "react";
 import { MoveRight } from "lucide-react";
+import Link from "next/link";
 
 const ServicesCard = ({
   title,
@@ -27,10 +28,13 @@ const ServicesCard = ({
           </li>
         ))}
       </ul> */}
-      <button className="rounded-full p-3 shadow-lg hover:rotate-[-30deg]">
+      <Link
+        href="/services"
+        className="rounded-full p-3 shadow-lg hover:rotate-[-30deg]"
+      >
         {" "}
         <MoveRight className="w-6 h-6 text-primary " />{" "}
-      </button>
+      </Link>
     </div>
   );
 };

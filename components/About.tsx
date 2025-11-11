@@ -23,6 +23,7 @@ import {
   Target,
 } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 interface StatCounterProps {
   value: number;
@@ -81,6 +82,7 @@ const StatCounter: React.FC<StatCounterProps> = ({
 };
 
 const AboutUs: React.FC = () => {
+  const router = useRouter();
   const sectionRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -330,7 +332,7 @@ const AboutUs: React.FC = () => {
         </motion.div>
 
         {/* Stats Section */}
-        <motion.div
+        {/* <motion.div
           className="grid grid-cols-2 md:grid-cols-4 gap-6"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -345,7 +347,7 @@ const AboutUs: React.FC = () => {
               delay={index * 0.1}
             />
           ))}
-        </motion.div>
+        </motion.div> */}
 
         {/* CTA Section */}
         <motion.div
@@ -363,6 +365,9 @@ const AboutUs: React.FC = () => {
           </p>
           <motion.button
             className="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-shadow duration-300"
+            onClick={() => {
+              router.push("/send-brief");
+            }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

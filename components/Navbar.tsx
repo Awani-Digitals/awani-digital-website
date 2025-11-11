@@ -94,9 +94,12 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-          <button className="bg-primary text-secondary rounded-md px-4 py-2 font-medium flex items-center gap-2 hover:scale-105 transition-transform">
+          <Link
+            href="/send-brief"
+            className="bg-primary text-secondary rounded-md px-4 py-2 font-medium flex items-center gap-2 hover:scale-105 transition-transform"
+          >
             Send A Brief <MoveRight size={18} />
-          </button>
+          </Link>
         </nav>
 
         {/* Mobile controls */}

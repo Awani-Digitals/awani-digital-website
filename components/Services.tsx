@@ -9,6 +9,7 @@ import {
   MoveRight,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import ServicesCard from "./ServicesCard";
 
 export const serviceData = [
@@ -101,12 +102,15 @@ const Services = () => {
               summary={service.summary}
             />
           ))}
-          <button className="bg-primary rounded-md grid place-items-center p-3 text-secondary ">
+          <Link
+            href="/services"
+            className="bg-primary rounded-md grid place-items-center p-3 text-secondary "
+          >
             <div className="flex gap-3 items-center hover:scale-105 transition-transform">
               <p className=" text-lg md:text-2xl font-semibold">Explore</p>
               <MoveRight className="w-6 h-6 text-white" />
             </div>
-          </button>
+          </Link>
         </div>
       </div>
     </div>
