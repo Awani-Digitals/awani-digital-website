@@ -110,13 +110,13 @@ const Footer = () => {
                 <Mail className="w-4 h-4 text-secondary" />
                 <span>info@awanidigitals.com</span>
               </div>
-              <div className="flex items-center gap-3 text-secondary text-sm">
+              {/* <div className="flex items-center gap-3 text-secondary text-sm">
                 <Phone className="w-4 h-4 text-secondary" />
                 <span>+1 (555) 123-4567</span>
-              </div>
+              </div> */}
               <div className="flex items-center gap-3 text-secondary text-sm">
                 <MapPin className="w-4 h-4 text-secondary" />
-                <span>New York, NY</span>
+                <span>Lagos, Nigeria</span>
               </div>
             </div>
           </motion.div>

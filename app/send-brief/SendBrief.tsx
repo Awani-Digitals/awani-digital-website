@@ -217,7 +217,10 @@ export function BriefPage() {
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className=" rounded-lg p-8 ">
+        <form
+          onSubmit={handleSubmit}
+          className=" rounded-lg p-8 md:px-8 px-0  "
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div>
               <label className="block text-[#faf5ff] font-medium mb-2">

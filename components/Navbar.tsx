@@ -76,7 +76,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-10">
+        <nav className="hidden lg:flex items-center gap-10">
           <ul className="flex gap-8 items-center">
             {navLinks.map((link) => (
               <li
@@ -103,13 +103,13 @@ const Navbar = () => {
         </nav>
 
         {/* Mobile controls */}
-        <div className="flex items-center md:hidden gap-3">
-          <button
+        <div className="flex items-center lg:hidden gap-3">
+          {/* <button
             aria-label="Send brief"
-            className="hidden sm:inline-flex bg-primary text-secondary rounded-md px-3 py-2 text-sm font-medium hover:scale-105 transition-transform"
+            className="hidden lg:inline-flex bg-primary text-secondary rounded-md px-3 py-2 text-sm font-medium hover:scale-105 transition-transform"
           >
             Brief
-          </button>
+          </button> */}
 
           <button
             aria-label="Open menu"
@@ -124,7 +124,7 @@ const Navbar = () => {
 
       {/* Mobile menu (slide-in full height panel) */}
       <div
-        className={`fixed inset-0 z-50 md:hidden pointer-events-none transition-opacity duration-300 ${
+        className={`fixed inset-0 z-50 lg:hidden pointer-events-none transition-opacity duration-300 ${
           open ? "opacity-100 pointer-events-auto" : "opacity-0"
         }`}
         aria-hidden={!open}
@@ -181,9 +181,12 @@ const Navbar = () => {
           </ul>
 
           <div className="px-6 mt-auto pb-8">
-            <button className="w-full bg-primary text-secondary rounded-md px-4 py-3 font-medium flex items-center justify-center gap-2 hover:scale-105 transition-transform">
+            <Link
+              href="/send-brief"
+              className="w-full bg-primary text-secondary rounded-md px-4 py-3 font-medium flex items-center justify-center gap-2 hover:scale-105 transition-transform"
+            >
               Send A Brief <MoveRight size={18} />
-            </button>
+            </Link>
           </div>
         </nav>
       </div>

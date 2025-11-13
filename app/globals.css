@@ -57,6 +57,14 @@ body {
   background-size: cover;
   /* opacity: 0.5; */
 }
+.contactBG {
+  background-image: linear-gradient(360deg, #000000c5, #000000cb),
+    url("/awaniContact.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  /* opacity: 0.5; */
+}
 
 .hBG {
   background-image: linear-gradient(360deg, #000000c5, #000000cb),
