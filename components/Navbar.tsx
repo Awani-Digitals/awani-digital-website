@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { MoveRight, Menu, X } from "lucide-react";
+import { easeOut, motion, easeIn, easeInOut } from "motion/react";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -55,6 +56,56 @@ const Navbar = () => {
     };
   }, [open]);
 
+  // VARIANTS
+  const logoVariants = {
+    initial: {
+      opacity: 0,
+      scale: 0,
+      y: -20,
+    },
+    animate: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        ease: easeIn,
+        delay: -0.2,
+        duration: 0.2,
+      },
+    },
+  };
+
+  const navbarItemVariants = {
+    initial: {
+      opacity: 1,
+    },
+    animate: {
+      opacity: 1,
+
+      transition: {
+        ease: easeIn,
+
+        duration: -0.4,
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const navbarLinksVariants = {
+    initial: {
+      opacity: 0,
+      y: -200,
+    },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        ease: easeInOut,
+        duration: 0.4,
+      },
+    },
+  };
+
   return (
     <header
       className={`w-full fixed top-0 left-0 grid place-items-center px-5 font-sans transition-colors duration-300 z-40 ${
@@ -63,7 +114,12 @@ const Navbar = () => {
     >
       <div className="text-white max-w-[1200px] w-full py-3 flex items-center justify-between gap-4 md:py-4">
         {/* Logo */}
-        <div className="flex items-center gap-3">
+        <motion.div
+          variants={logoVariants}
+          initial="initial"
+          animate="animate"
+          className="flex items-center gap-3"
+        >
           <Link href="/" className="inline-flex items-center">
             <Image
               width={140}
@@ -73,33 +129,45 @@ const Navbar = () => {
               className="object-contain"
             />
           </Link>
-        </div>
+        </motion.div>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-10">
-          <ul className="flex gap-8 items-center">
+        <nav className="hidden lg:flex items-center">
+          <motion.ul
+            className="flex gap-8 items-center"
+            variants={navbarItemVariants}
+            initial="initial"
+            animate="animate"
+          >
             {navLinks.map((link) => (
-              <li
+              <motion.li
                 className={`text-secondary relative py-1 ${
-                  pathname === link.path ? "text-primary" : "hover:text-primary"
+                  pathname === link.path ? "text-primary" : ""
                 }`}
+                variants={navbarLinksVariants}
                 key={link.name}
               >
-                <Link href={link.path} className="px-1">
+                <Link
+                  href={link.path}
+                  className="px-1 suble_hover hover:text-primary "
+                >
                   {link.name}
                 </Link>
                 {pathname === link.path && (
-                  <span className="absolute left-0 -bottom-2 w-full h-0.5 bg-primary rounded" />
+                  <span className="absolute left-0 -bottom-0.5 w-full h-[1px] bg-primary rounded" />
                 )}
-              </li>
+              </motion.li>
             ))}
-          </ul>
-          <Link
-            href="/send-brief"
-            className="bg-primary text-secondary rounded-md px-4 py-2 font-medium flex items-center gap-2 hover:scale-105 transition-transform"
-          >
-            Send A Brief <MoveRight size={18} />
-          </Link>
+
+            <motion.button variants={navbarLinksVariants} className="ml-2">
+              <Link
+                href="/send-brief"
+                className="bg-primary text-secondary rounded-md px-4 py-2 font-medium flex items-center gap-2 hover:scale-105 transition-transform suble_hover "
+              >
+                Send A Brief <MoveRight size={18} />
+              </Link>
+            </motion.button>
+          </motion.ul>
         </nav>
 
         {/* Mobile controls */}

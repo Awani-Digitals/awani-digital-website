@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 
 import React from "react";
 import { LibraryBig, ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { easeInOut, motion } from "framer-motion";
 import { BlogCard } from "./BlogCard";
 import Link from "next/link";
+import { init } from "next/dist/compiled/webpack/webpack";
 
 export interface BlogPost {
   id: string;
@@ -19,41 +20,21 @@ export interface BlogPost {
   read_time: string;
   slug: string;
 }
-// const sampleBlogs = [
-//   {
-//     title: "The Future of Web Development: Trends to Watch in 2025",
-//     excerpt:
-//       "Explore the emerging technologies and methodologies that are reshaping how we build for the web. From AI integration to new frameworks, discover what's next.",
-//     author: "Sarah Chen",
-//     date: "Nov 1, 2025",
-//     category: "Technology",
-//     imageUrl:
-//       "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=800",
-//     readTime: "5 min read",
-//   },
-//   {
-//     title: "Building Scalable Applications: Best Practices for Modern Teams",
-//     excerpt:
-//       "Learn the essential patterns and practices that help engineering teams build applications that can grow with your business needs.",
-//     author: "Michael Torres",
-//     date: "Oct 28, 2025",
-//     category: "Development",
-//     imageUrl:
-//       "https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=800",
-//     readTime: "8 min read",
-//   },
-//   {
-//     title: "Design Systems: Creating Consistency at Scale",
-//     excerpt:
-//       "Discover how design systems can transform your product development process and create a unified user experience across all touchpoints.",
-//     author: "Emily Rodriguez",
-//     date: "Oct 25, 2025",
-//     category: "Design",
-//     imageUrl:
-//       "https://images.pexels.com/photos/196645/pexels-photo-196645.jpeg?auto=compress&cs=tinysrgb&w=800",
-//     readTime: "6 min read",
-//   },
-// ];
+
+const blogCardsWrapperVariant = {
+  initial: {
+    opacity: 1,
+  },
+  animate: {
+    opacity: 1,
+
+    transition: {
+      ease: easeInOut,
+      duration: 0.1,
+      staggerChildren: 0.2,
+    },
+  },
+};
 
 const BlogsSection = () => {
   const [blogs, setBlogs] = useState<BlogPost[]>([]);
@@ -121,15 +102,20 @@ const BlogsSection = () => {
           />
         </div>
 
-        <div className="w-full mt-10 flex justify-center gap-x-8 gap-y-10 flex-wrap ">
+        <motion.div
+          variants={blogCardsWrapperVariant}
+          initial="initial"
+          whileInView="animate"
+          className="w-full mt-10 flex justify-center gap-x-8 gap-y-10 flex-wrap "
+        >
           {blogs.slice(0, 3).map((blog, index) => (
             <BlogCard key={index} {...blog} />
           ))}
-        </div>
+        </motion.div>
 
         <div className="w-full grid place-items-center my-6 ">
           <Link
-            className="bg-white text-primary rounded-md px-7 py-2.5 text-lg font-medium flex justify-center items-center gap-2 hover:bg-primary hover:text-white "
+            className="bg-white text-primary rounded-md px-7 py-2.5 text-lg font-medium flex justify-center items-center gap-2 hover:bg-primary hover:text-white suble_hover "
             href={"blogs"}
           >
             See All <ArrowRight />

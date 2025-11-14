@@ -2,29 +2,66 @@
 
 // import { SpiralAnimation } from "@/components/ui/spiral-animation";
 
-import { SpiralAnimation } from "./spiral-animation";
+// import { SpiralAnimation } from "./spiral-animation";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
+// import Image from "next/image";
 import { Linkedin, Instagram, MoveRight } from "lucide-react";
-import { FaXTwitter } from "react-icons/fa6";
+// import { FaXTwitter } from "react-icons/fa6";
+import { easeOut, motion, easeIn, easeInOut, scale } from "motion/react";
 
 const HeroSection = () => {
   const [startVisible, setStartVisible] = useState(false);
 
   // Handle navigation to personal site
-  const navigateToPersonalSite = () => {
-    window.location.href = "https://xubh.top/";
-  };
+  // const navigateToPersonalSite = () => {
+  //   window.location.href = "https://xubh.top/";
+  // };
 
   // Fade in the start button after animation loads
   useEffect(() => {
     const timer = setTimeout(() => {
       setStartVisible(true);
-    }, 2000);
+    }, 350);
 
     return () => clearTimeout(timer);
   }, []);
+
+  const subTextVariants = {
+    initial: {
+      opacity: 0,
+      scale: 0,
+      y: 20,
+    },
+    animate: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        ease: easeInOut,
+        delay: 0.4,
+        duration: 0.3,
+      },
+    },
+  };
+
+  const CTAButtonVariants = {
+    initial: {
+      opacity: 0,
+      scale: 0,
+      y: 10,
+    },
+    animate: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        ease: easeInOut,
+        delay: 0.8,
+        duration: 0.3,
+      },
+    },
+  };
 
   return (
     <div className=" w-full h-full overflow-hidden bg-transparent   ">
@@ -37,17 +74,14 @@ const HeroSection = () => {
       <div
         className={` grid place-items-center relative w-full h-screen
           z-10 heroBG
-          transition-all bg-transparent duration-1500 ease-out
+          transition-all bg-transparent duration-800 ease-in
           ${
             startVisible
               ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-4"
+              : "opacity-0 translate-y-20"
           }
         `}
       >
-        {/* <span className="absolute right-[250px] cursor-pointer hover:scale-120 rotate-180 top-[200px] hover:animate-spin ">
-          <Image width={70} height={100} src="/AwaniSticker1.png" alt="Logo" />
-        </span> */}
         <div
           className="
             text-white text-2xl px-4  flex flex-col items-center
@@ -62,18 +96,29 @@ const HeroSection = () => {
             It’s Time your <span className="text-primary">Marketing</span> spoke
             with one voice
           </h1>
-          <h2 className="max-w-[800px] text-lg w-full text-center mt-7 font-medium ">
+          <motion.h2
+            variants={subTextVariants}
+            initial="initial"
+            animate="animate"
+            className="max-w-[800px] text-lg w-full text-center mt-7 font-medium "
+          >
             At Awani Digitals, we craft integrated marketing experiences that
             connect people, build brands, and drive measurable results across
             every touchpoint.
-          </h2>
-
-          <Link
-            href="/send-brief"
-            className="bg-primary text-secondary rounded-md mt-10 text-base px-7 py-3 font-medium flex items-center gap-2 hover:scale-105 transition-transform"
+          </motion.h2>
+          <motion.button
+            variants={subTextVariants}
+            initial="initial"
+            animate="animate"
           >
-            Talk To Us <MoveRight size={20} />
-          </Link>
+            <Link
+              href="/send-brief"
+              className="bg-primary text-secondary rounded-md mt-10 text-base px-7 py-3 font-medium flex items-center gap-2 hover:scale-105 transition-transform suble_hover "
+            >
+              Talk To Us <MoveRight size={20} />
+            </Link>
+          </motion.button>
+
           {/* <div className="flex gap-7 mt-10 items-center">
             <a
               className="rounded-full w-12 h-12 bg-white text-background  border-2 border-primary grid place-items-center  "

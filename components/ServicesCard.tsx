@@ -1,7 +1,24 @@
 import React from "react";
 import { MoveRight } from "lucide-react";
 import Link from "next/link";
+import { cubicBezier, easeInOut, motion } from "motion/react";
 
+// VARIANTS
+const cardVariants = {
+  initial: {
+    opacity: 0.5,
+    scale: 0.8,
+  },
+
+  animate: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      ease: easeInOut,
+      duration: 0.4,
+    },
+  },
+};
 const ServicesCard = ({
   title,
   icon,
@@ -14,7 +31,14 @@ const ServicesCard = ({
   summary: string;
 }) => {
   return (
-    <div className="bg-secondary rounded-md flex flex-col items-center gap-6 px-10 py-10 text-black justify-between shadow-lg shadow-primary/30 hover:scale-105 transition-transform duration-300">
+    <motion.div
+      variants={cardVariants}
+      whileHover={{
+        scale: 1.05,
+        transition: { duration: 0.2, ease: "easeInOut" },
+      }}
+      className="bg-secondary rounded-md flex flex-col items-center gap-6 px-10 py-10 text-black justify-between shadow-lg shadow-primary/30 "
+    >
       <span className="rounded-full p-3 bg-primary grid place-items-center text-white ">
         {icon}
       </span>
@@ -30,12 +54,12 @@ const ServicesCard = ({
       </ul> */}
       <Link
         href="/services"
-        className="rounded-full p-3 shadow-lg hover:rotate-[-30deg]"
+        className="rounded-full p-3 shadow-lg suble_hover  hover:rotate-[-30deg] transition-all "
       >
         {" "}
         <MoveRight className="w-6 h-6 text-primary " />{" "}
       </Link>
-    </div>
+    </motion.div>
   );
 };
 

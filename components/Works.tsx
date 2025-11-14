@@ -24,9 +24,9 @@ const Works = () => {
           </h1>
           <motion.div
             className="w-24 h-1 mt-[-20px] bg-primary mx-auto"
-            initial={{ width: 0 }}
-            animate={{ width: 96 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            initial={{ opacity: 0, width: 0 }}
+            whileInView={{ opacity: 1, width: 96 }}
+            transition={{ duration: 0.4, delay: 0.3 }}
           />
         </div>
 
@@ -38,7 +38,7 @@ const Works = () => {
 
         <div className="w-full grid place-items-center ">
           <Link
-            className="bg-white text-primary rounded-md px-7 py-2.5 text-lg font-medium flex justify-center items-center gap-2 hover:bg-primary hover:text-white "
+            className="bg-white text-primary rounded-md px-7 py-2.5 text-lg font-medium flex justify-center items-center gap-2 hover:bg-primary hover:text-white suble_hover "
             href={"/works"}
           >
             See All <ArrowRight />

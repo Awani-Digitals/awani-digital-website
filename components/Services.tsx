@@ -8,8 +8,10 @@ import {
   Percent,
   MoveRight,
 } from "lucide-react";
-import { motion } from "framer-motion";
+
+import { cubicBezier, easeInOut, motion } from "motion/react";
 import Link from "next/link";
+// import { useRouter } from "next/navigation";
 import ServicesCard from "./ServicesCard";
 
 export const serviceData = [
@@ -70,7 +72,55 @@ export const serviceData = [
   },
 ];
 
+// VARIANTS
+const titleVariants = {
+  initial: {
+    opacity: 0,
+    scale: 0,
+  },
+  animate: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      ease: cubicBezier(0, 0, 1, 1),
+      duration: 0.5,
+    },
+  },
+};
+
+const cardWrapperVariants = {
+  initial: {
+    opacity: 1,
+  },
+  animate: {
+    opacity: 1,
+
+    transition: {
+      ease: cubicBezier(0, 0, 1, 1),
+      duration: 0.1,
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const cardVariants = {
+  initial: {
+    opacity: 0,
+    scale: 0,
+  },
+
+  animate: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      ease: easeInOut,
+      duration: 0.5,
+    },
+  },
+};
+
 const Services = () => {
+  // const router = useRouter();
   return (
     <div className="w-full  our_services grid place-items-center px-4 ">
       <div className="max-w-[1200px] w-full flex flex-col gap-10 items-center py-20">
@@ -79,20 +129,30 @@ const Services = () => {
           <BriefcaseBusiness className="w-4 h-4" /> Our Services
         </h1>
 
-        <div className="flex flex-col items-center gap-5">
+        <motion.div
+          variants={titleVariants}
+          initial="initial"
+          whileInView="animate"
+          className="flex flex-col items-center gap-5"
+        >
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 text-center ">
             What We Can Do
             <span className="block text-primary text-center ">For You</span>
           </h1>
           <motion.div
             className="w-24 h-1 mt-[-20px] bg-primary mx-auto"
-            initial={{ width: 0 }}
-            animate={{ width: 96 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            initial={{ width: 0, opacity: 0 }}
+            whileInView={{ width: 96, opacity: 1 }}
+            transition={{ duration: 0.45, delay: 0.3 }}
           />
-        </div>
+        </motion.div>
 
-        <div className="w-full mt-10 grid grid-cols-1 md:grid-cols-3 gap-10">
+        <motion.div
+          variants={cardWrapperVariants}
+          initial="initial"
+          whileInView="animate"
+          className="w-full mt-10 grid grid-cols-1 md:grid-cols-3 gap-10"
+        >
           {serviceData.map((service, index) => (
             <ServicesCard
               key={index}
@@ -102,16 +162,28 @@ const Services = () => {
               summary={service.summary}
             />
           ))}
-          <Link
-            href="/services"
-            className="bg-primary rounded-md grid place-items-center p-3 text-secondary "
+          <motion.button
+            // onClick={() => {
+            //   router.push("/services");
+            // }}
+            variants={cardVariants}
+            whileHover={{
+              scale: 1.05,
+              transition: { duration: 0.2, ease: "easeInOut" },
+            }}
+            className="h-full bg-primary   rounded-md"
           >
-            <div className="flex gap-3 items-center hover:scale-105 transition-transform">
-              <p className=" text-lg md:text-2xl font-semibold">Explore</p>
-              <MoveRight className="w-6 h-6 text-white" />
-            </div>
-          </Link>
-        </div>
+            <Link
+              href="/services"
+              className="bg-primary grid place-items-center h-full w-full p-3 rounded-md text-secondary "
+            >
+              <div className="flex gap-3 items-center hover:scale-105 suble_hover transition-transform">
+                <p className=" text-lg md:text-2xl font-semibold">Explore</p>
+                <MoveRight className="w-6 h-6 text-white" />
+              </div>
+            </Link>
+          </motion.button>
+        </motion.div>
       </div>
     </div>
   );
