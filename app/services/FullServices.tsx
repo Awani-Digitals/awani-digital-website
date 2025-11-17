@@ -17,6 +17,7 @@ import { FaUser } from "react-icons/fa";
 import { AiFillBuild } from "react-icons/ai";
 import { TbRulerMeasure2 } from "react-icons/tb";
 import { serviceData } from "@/components/Services";
+import { motion, cubicBezier } from "motion/react";
 
 // const serviceData = [
 //   {
@@ -154,6 +155,42 @@ const testimonials = [
   },
 ];
 
+const titleVariant = {
+  initial: {
+    y: 100,
+    opacity: 0,
+    scale: 0.4,
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.4,
+
+      ease: cubicBezier(0, 0, 1, 1),
+    },
+  },
+};
+
+const subTitleVariant = {
+  initial: {
+    y: 50,
+    opacity: 0,
+    scale: 0.4,
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.4,
+      delay: 0.2,
+      ease: cubicBezier(0, 0, 1, 1),
+    },
+  },
+};
+
 export const FullServices = () => {
   return (
     <div className="w-full">
@@ -163,21 +200,31 @@ export const FullServices = () => {
         {/* Hero Section */}
         <section className="max-w-[1200px] w-full mx-auto min-h-[80vh] grid place-items-center px-4">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <motion.h1
+              variants={titleVariant}
+              initial="initial"
+              animate="animate"
+              className="text-4xl md:text-6xl font-bold mb-6"
+            >
               Strategic{" "}
               <span className="text-[#f73444]">Marketing Services</span> for
               Growth-Driven Brands
-            </h1>
-            <p className="text-lg md:text-xl opacity-80 mb-10 leading-relaxed">
+            </motion.h1>
+            <motion.p
+              variants={subTitleVariant}
+              initial="initial"
+              animate="animate"
+              className="text-lg md:text-xl opacity-80 mb-10 leading-relaxed"
+            >
               Transform your brand’s presence with insight-led strategies built
               to accelerate growth, deepen connection, and deliver measurable
               returns.
-            </p>
+            </motion.p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <button className="bg-[#f73444] text-[#faf5ff] px-8 py-3 rounded-full font-medium hover:bg-opacity-90 transition-all transform hover:scale-105">
+              <button className="bg-[#f73444] text-[#faf5ff] px-8 py-3 rounded-full font-medium hover:bg-opacity-90 transition-all suble_hover transform hover:scale-105">
                 Explore Services
               </button>
-              <button className="border border-[#faf5ff] text-[#faf5ff] px-8 py-3 rounded-full font-medium hover:bg-[#faf5ff] hover:text-[#20201e] transition-all">
+              <button className="border border-[#faf5ff] text-[#faf5ff] px-8 py-3 rounded-full font-medium hover:bg-[#faf5ff] suble_hover hover:text-[#20201e] transition-all">
                 Schedule a Call
               </button>
             </div>
@@ -188,9 +235,9 @@ export const FullServices = () => {
 
         <section className=" w-full flex flex-col items-center justify-center bg-background py-20 px-4">
           <div className="text-center max-w-[1200px] w-full mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">
+            <motion.h2 className="text-3xl md:text-5xl font-bold mb-4">
               Our <span className="text-primary">Services</span>
-            </h2>
+            </motion.h2>
             <p className="max-w-2xl mx-auto text-lg opacity-80">
               Comprehensive marketing solutions tailored to your business needs
               and growth objectives.
@@ -219,7 +266,7 @@ export const FullServices = () => {
 
                 <a
                   href="#"
-                  className="inline-flex mt-6 items-center text-[#f73444] font-medium text-sm hover:underline"
+                  className="inline-flex mt-6 items-center text-[#f73444] font-medium text-sm hover:underline suble_hover "
                 >
                   Send A Brief
                   <span className="material-symbols-outlined text-sm ml-1">

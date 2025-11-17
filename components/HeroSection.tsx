@@ -30,7 +30,7 @@ const HeroSection = () => {
   const subTextVariants = {
     initial: {
       opacity: 0,
-      scale: 0,
+      scale: 0.6,
       y: 20,
     },
     animate: {
@@ -39,8 +39,8 @@ const HeroSection = () => {
       y: 0,
       transition: {
         ease: easeInOut,
-        delay: 0.4,
-        duration: 0.3,
+        delay: 0.6,
+        duration: 0.35,
       },
     },
   };
@@ -74,7 +74,7 @@ const HeroSection = () => {
       <div
         className={` grid place-items-center relative w-full h-screen
           z-10 heroBG
-          transition-all bg-transparent duration-800 ease-in
+          transition-all bg-transparent duration-300 ease-in
           ${
             startVisible
               ? "opacity-100 translate-y-0"

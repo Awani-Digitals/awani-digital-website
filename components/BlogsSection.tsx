@@ -7,7 +7,7 @@ import { LibraryBig, ArrowRight } from "lucide-react";
 import { easeInOut, motion } from "framer-motion";
 import { BlogCard } from "./BlogCard";
 import Link from "next/link";
-import { init } from "next/dist/compiled/webpack/webpack";
+// import { init } from "next/dist/compiled/webpack/webpack";
 
 export interface BlogPost {
   id: string;

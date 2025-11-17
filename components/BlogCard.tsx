@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Trash2 } from "lucide-react";
 import { easeInOut, motion } from "motion/react";
 interface BlogCardProps {
   id: string;
@@ -10,6 +11,7 @@ interface BlogCardProps {
   image_url: string;
   read_time: string;
   slug: string;
+  openDeleteConfirm?: (id: string, title: string) => void;
 }
 
 const BlogCardVariants = {
@@ -39,15 +41,16 @@ export function BlogCard({
   image_url,
   read_time,
   slug,
+  openDeleteConfirm,
 }: BlogCardProps) {
   return (
     <motion.div
       variants={BlogCardVariants}
-      className="group bg-[#faf5ff] rounded-lg overflow-hidden shadow-lg max-w-[350px] w-full"
+      className="group bg-[#faf5ff] rounded-lg overflow-hidden shadow-lg max-w-[350px] w-full relative"
     >
       <Link
         href={`/blogs/${slug}`}
-        className="group bg-[#faf5ff] rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 max-w-[350px] w-full"
+        className="group bg-[#faf5ff] rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 max-w-[350px] w-full "
       >
         <div className="relative overflow-hidden h-56">
           <img
@@ -60,6 +63,18 @@ export function BlogCard({
               {category}
             </span>
           </div>
+
+          {/* {openDeleteConfirm !== undefined && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                openDeleteConfirm(id, title);
+              }}
+              className="bg-primary rounded-md px-3 py-1.5 absolute top-4 right-4 text-white "
+            >
+              <Trash2 size={20} />
+            </button>
+          )} */}
         </div>
 
         <div className="p-6">
@@ -86,6 +101,20 @@ export function BlogCard({
           </div>
         </div>
       </Link>
+
+      {openDeleteConfirm !== undefined && (
+        <button
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            openDeleteConfirm(id, title);
+          }}
+          className="bg-primary rounded-md px-3 py-1.5 absolute top-4 right-4 text-white z-20"
+        >
+          <Trash2 size={20} />
+        </button>
+      )}
     </motion.div>
   );
 }

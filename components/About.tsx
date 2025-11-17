@@ -12,20 +12,7 @@ import {
   easeOut,
   cubicBezier,
 } from "motion/react";
-import {
-  Sparkles,
-  Heart,
-  Star,
-  Zap,
-  Coffee,
-  Music,
-  Camera,
-  Palette,
-  Award,
-  Users,
-  TrendingUp,
-  Target,
-} from "lucide-react";
+import { Sparkles, Users, TrendingUp, Target } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -165,7 +152,6 @@ const AboutUs: React.FC = () => {
       opacity: 1,
       transition: {
         duration: 0.6,
-
         ease: cubicBezier(0, 0, 1, 1),
       },
     },

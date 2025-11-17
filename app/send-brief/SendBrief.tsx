@@ -12,12 +12,12 @@ const SERVICES = [
   "Traditional & Experiential Marketing",
 ];
 
-const BUDGET_RANGES = [
-  "#10,000 - #25,000",
-  "#25,000 - #50,000",
-  "#50,000 - #100,000",
-  "#100,000+",
-];
+// const BUDGET_RANGES = [
+//   "#10,000 - #25,000",
+//   "#25,000 - #50,000",
+//   "#50,000 - #100,000",
+//   "#100,000+",
+// ];
 
 export function BriefPage() {
   const [formData, setFormData] = useState({
@@ -33,6 +33,29 @@ export function BriefPage() {
 
   const [fileName, setFileName] = useState("");
   const [file, setFile] = useState<File | null>(null);
+  const [budgetValue, setBudgetValue] = useState<string>(
+    formData.budgetRange || ""
+  );
+  const [budgetRaw, setBudgetRaw] = useState<string>(""); // store digits only
+
+  function formatCurrencyFromDigits(digits: string) {
+    if (!digits) return "";
+    const n = parseInt(digits, 10);
+    return new Intl.NumberFormat("en-NG", {
+      style: "currency",
+      currency: "NGN",
+      maximumFractionDigits: 0,
+    }).format(n);
+  }
+
+  function handleBudgetInput(e: React.ChangeEvent<HTMLInputElement>) {
+    // keep only digits (no negatives, no decimals)
+    const digits = e.target.value.replace(/[^\d]/g, "");
+    const formatted = formatCurrencyFromDigits(digits);
+    setBudgetValue(formatted);
+    setBudgetRaw(digits);
+    setFormData((prev) => ({ ...prev, budgetRange: formatted }));
+  }
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
@@ -74,14 +97,17 @@ export function BriefPage() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
-
-    if (!formData.consent) {
-      setError("Please consent to our privacy policy");
+    if (formData.services.length === 0) {
+      setError("Please select at least one service");
       return;
     }
 
-    if (formData.services.length === 0) {
-      setError("Please select at least one service");
+    if (!formData.budgetRange) {
+      setError("Please enter a budget range");
+      return;
+    }
+    if (!formData.consent) {
+      setError("Please consent to our privacy policy");
       return;
     }
 
@@ -329,9 +355,36 @@ export function BriefPage() {
 
           <div className="mb-6">
             <label className="block text-[#faf5ff] font-medium mb-2">
-              Budget range (optional)
+              Budget range (₦) *
             </label>
-            <select
+            {/* <input
+              onChange={(e) =>
+                setFormData({ ...formData, budgetRange: e.target.value })
+              }
+              className="w-full px-4 py-3 bg-[#1a1a17] border border-gray-700 rounded-lg text-[#faf5ff] focus:outline-none focus:border-[#f73444] transition"
+              placeholder="₦"
+              type="number"
+            /> */}
+            <input
+              type="text"
+              inputMode="numeric"
+              // pattern="[0-9]*"
+              value={budgetValue}
+              onChange={handleBudgetInput}
+              onKeyDown={(e) => {
+                // prevent -, +, e, E etc.
+                if (["-", "+", "e", "E"].includes(e.key)) e.preventDefault();
+              }}
+              onPaste={(e) => {
+                const txt = e.clipboardData.getData("text");
+                if (!/^\d+$/.test(txt)) e.preventDefault();
+              }}
+              className="w-full px-4 py-3 bg-[#1a1a17] border border-gray-700 rounded-lg text-[#faf5ff] focus:outline-none focus:border-[#f73444] transition"
+              placeholder="₦0"
+            />
+            {/* hidden raw numeric value for programmatic validation / sending */}
+            <input type="hidden" name="budgetRaw" value={budgetRaw} />
+            {/* <select
               value={formData.budgetRange}
               onChange={(e) =>
                 setFormData({ ...formData, budgetRange: e.target.value })
@@ -344,7 +397,7 @@ export function BriefPage() {
                   {range}
                 </option>
               ))}
-            </select>
+            </select> */}
           </div>
 
           <div className="mb-6">

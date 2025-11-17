@@ -3,11 +3,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import {
   motion,
-  useScroll,
-  useTransform,
+  // useScroll,
+  // useTransform,
   useInView,
-  AnimatePresence,
-} from "framer-motion";
+  cubicBezier,
+  easeIn,
+} from "motion/react";
 import {
   Sparkles,
   Heart,
@@ -24,71 +25,119 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 
-interface StatCounterProps {
-  value: number;
-  label: string;
-  suffix: string;
-  delay: number;
-}
+// interface StatCounterProps {
+//   value: number;
+//   label: string;
+//   suffix: string;
+//   delay: number;
+// }
 
-const StatCounter: React.FC<StatCounterProps> = ({
-  value,
-  label,
-  suffix,
-  delay,
-}) => {
-  const [count, setCount] = useState(0);
-  const countRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(countRef, { once: false, amount: 0.5 });
+// const StatCounter: React.FC<StatCounterProps> = ({
+//   value,
+//   label,
+//   suffix,
+//   delay,
+// }) => {
+//   const [count, setCount] = useState(0);
+//   const countRef = useRef<HTMLDivElement>(null);
+//   const isInView = useInView(countRef, { once: false, amount: 0.5 });
 
-  useEffect(() => {
-    if (isInView) {
-      let start = 0;
-      const duration = 2000;
-      const increment = value / (duration / 16);
+//   useEffect(() => {
+//     if (isInView) {
+//       let start = 0;
+//       const duration = 2000;
+//       const increment = value / (duration / 16);
 
-      const timer = setInterval(() => {
-        start += increment;
-        if (start >= value) {
-          setCount(value);
-          clearInterval(timer);
-        } else {
-          setCount(Math.floor(start));
-        }
-      }, 16);
+//       const timer = setInterval(() => {
+//         start += increment;
+//         if (start >= value) {
+//           setCount(value);
+//           clearInterval(timer);
+//         } else {
+//           setCount(Math.floor(start));
+//         }
+//       }, 16);
 
-      return () => clearInterval(timer);
-    } else {
-      setCount(0);
-    }
-  }, [isInView, value]);
+//       return () => clearInterval(timer);
+//     } else {
+//       setCount(0);
+//     }
+//   }, [isInView, value]);
 
-  return (
-    <motion.div
-      ref={countRef}
-      className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300"
-      initial={{ opacity: 0, y: 20 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-      transition={{ duration: 0.6, delay }}
-    >
-      <div className="text-4xl font-bold text-primary mb-2">
-        {count}
-        {suffix}
-      </div>
-      <div className="text-gray-600 text-sm">{label}</div>
-    </motion.div>
-  );
+//   return (
+//     <motion.div
+//       ref={countRef}
+//       className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300"
+//       initial={{ opacity: 0, y: 20 }}
+//       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+//       transition={{ duration: 0.6, delay }}
+//     >
+//       <div className="text-4xl font-bold text-primary mb-2">
+//         {count}
+//         {suffix}
+//       </div>
+//       <div className="text-gray-600 text-sm">{label}</div>
+//     </motion.div>
+//   );
+// };
+
+const leftTextVariants = {
+  initial: {
+    x: "-70%",
+    opacity: 0,
+  },
+  animate: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+
+      ease: cubicBezier(0, 0, 1, 1),
+    },
+  },
+};
+
+const rightTextWrapperVariants = {
+  initial: {
+    opacity: 1,
+  },
+  animate: {
+    opacity: 1,
+
+    transition: {
+      ease: easeIn,
+
+      duration: -0.4,
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const rightTextVariants = {
+  initial: {
+    x: "70%",
+    opacity: 0,
+  },
+  animate: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+
+      ease: cubicBezier(0, 0, 1, 1),
+    },
+  },
 };
 
 const AboutPage: React.FC = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
+  // const sectionRef = useRef<HTMLDivElement>(null);
+  // const { scrollYProgress } = useScroll({
+  //   target: sectionRef,
+  //   offset: ["start end", "end start"],
+  // });
 
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, -30]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, 30]);
+  // const y1 = useTransform(scrollYProgress, [0, 1], [0, -30]);
+  // const y2 = useTransform(scrollYProgress, [0, 1], [0, 30]);
 
   const stickers = [
     {
@@ -150,17 +199,12 @@ const AboutPage: React.FC = () => {
 
   return (
     <section
-      ref={sectionRef}
+      // ref={sectionRef}
       className="min-h-screen w-full bg-gradient-to-br from-blue-50 via-white to-purple-50 py-20 lg:px-4 overflow-hidden relative"
     >
       <div className="container mx-auto max-w-[1200px] w-full px-4 lg:px-0 relative z-20">
         {/* Header */}
-        <motion.div
-          className="text-center w-full mb-16 flex flex-col "
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
+        <motion.div className="text-center w-full mb-16 flex flex-col ">
           {/* <motion.div
             className="inline-flex items-center gap-2  text-primary px-4 w-fit py-2 rounded-full mb-4"
             initial={{ scale: 0 }}
@@ -171,16 +215,21 @@ const AboutPage: React.FC = () => {
             <span className="text-sm font-semibold">ABOUT US</span>
           </motion.div> */}
 
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
+          <motion.h1
+            initial={{ opacity: 0, y: -100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-5xl md:text-6xl font-bold text-gray-900 mb-4"
+          >
             We Produce Amazing
             <span className="block text-primary ">Results</span>
-          </h1>
+          </motion.h1>
 
           <motion.div
             className="w-24 h-1 bg-primary mx-auto"
             initial={{ width: 0 }}
             animate={{ width: 96 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
           />
         </motion.div>
 
@@ -194,9 +243,9 @@ const AboutPage: React.FC = () => {
           {/* Left Column - Image */}
           <motion.div
             className="relative"
-            initial={{ x: -50, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            initial={{ x: "-100%", opacity: 0 }}
+            animate={{ x: "0", opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <Image
@@ -238,57 +287,51 @@ const AboutPage: React.FC = () => {
           {/* Right Column - Text */}
           <motion.div
             className="flex flex-col justify-center"
-            initial={{ x: 50, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            variants={rightTextWrapperVariants}
+            initial="initial"
+            animate="animate"
           >
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
               Crafting Digital Excellence Since 2009
             </h2>
 
-            <p className="text-gray-600 mb-6 leading-relaxed">
+            <motion.p
+              variants={rightTextVariants}
+              className="text-gray-600 mb-6 leading-relaxed"
+            >
               Awani Digitals is a leading integrated marketing communications
               agency in Nigeria, helping brands grow through strategy,
               creativity, and innovation.
-            </p>
+            </motion.p>
 
-            <p className="text-gray-600 mb-6 leading-relaxed">
+            <motion.p
+              variants={rightTextVariants}
+              className="text-gray-600 mb-6 leading-relaxed"
+            >
               {" "}
               We specialize in digital marketing, brand strategy, social media
               management, advertising, and experiential marketing that deliver
               measurable business results. From concept to execution, we create
               campaigns that connect brands with people, spark conversations,
               and drive conversion across multiple platforms.
-            </p>
+            </motion.p>
 
-            <p className="text-gray-600 mb-6 leading-relaxed">
-              Awani Digitals is a leading integrated marketing communications
-              agency in Nigeria, helping brands grow through strategy,
-              creativity, and innovation.
-            </p>
-
-            <p className="text-gray-600 mb-6 leading-relaxed">
-              {" "}
-              We specialize in digital marketing, brand strategy, social media
-              management, advertising, and experiential marketing that deliver
-              measurable business results. From concept to execution, we create
-              campaigns that connect brands with people, spark conversations,
-              and drive conversion across multiple platforms.
-            </p>
-
-            <p className="text-gray-600 mb-8 leading-relaxed">
+            <motion.p
+              variants={rightTextVariants}
+              className="text-gray-600 mb-8 leading-relaxed"
+            >
               Our team of creatives and strategists helps brands stand out,
               engage audiences, and achieve measurable growth in today’s
               fast-changing market. We believe every brand has a story worth
               telling, and our mission is to help you tell yours with clarity,
               consistency, and impact across every touchpoint.
-            </p>
+            </motion.p>
 
             {/* <p className="text-gray-600 mb-8 leading-relaxed">
-              With over a decade of experience, we've helped hundreds of brands
-              establish their digital presence and connect with their audiences
-              in meaningful ways.
-            </p> */}
+                        With over a decade of experience, we've helped hundreds of brands
+                        establish their digital presence and connect with their audiences
+                        in meaningful ways.
+                      </p> */}
 
             {/* Feature list */}
             <div className="space-y-4">
@@ -310,7 +353,7 @@ const AboutPage: React.FC = () => {
                   key={index}
                   className="flex items-center gap-3"
                   initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
                 >
                   <div className="bg-primary/10 p-2 rounded-lg text-primary">
@@ -328,12 +371,7 @@ const AboutPage: React.FC = () => {
 
       <div className="w-full flex flex-col items-center bg-background px-4 py-[80px] rounded-[25px] ">
         <div className="w-full max-w-[1200px]  ">
-          <motion.div
-            className="text-center w-full mb-16 flex flex-col "
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+          <motion.div className="text-center w-full mb-16 flex flex-col ">
             {/* <motion.div
             className="inline-flex items-center gap-2  text-primary px-4 w-fit py-2 rounded-full mb-4"
             initial={{ scale: 0 }}
@@ -344,16 +382,20 @@ const AboutPage: React.FC = () => {
             <span className="text-sm font-semibold">ABOUT US</span>
           </motion.div> */}
 
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
+            <motion.h1
+              initial={{ opacity: 0, y: 120 }}
+              whileInView={{ opacity: 1, y: 0, transition: { duration: 0.6 } }}
+              className="text-5xl md:text-6xl font-bold text-white mb-4"
+            >
               The Mind
               <span className="block text-primary ">Behind the Movement</span>
-            </h1>
+            </motion.h1>
 
             <motion.div
               className="w-24 h-1 bg-primary mx-auto"
-              initial={{ width: 0 }}
-              animate={{ width: 96 }}
-              transition={{ duration: 1, delay: 0.5 }}
+              initial={{ width: 0, opacity: 0 }}
+              whileInView={{ width: 96, opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.3 }}
             />
           </motion.div>
 
@@ -511,7 +553,7 @@ const AboutPage: React.FC = () => {
         </div>
 
         {/* Stats Section */}
-        <motion.div
+        {/* <motion.div
           className="grid grid-cols-2 w-full max-w-[1200px] md:grid-cols-4 gap-6"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -526,7 +568,7 @@ const AboutPage: React.FC = () => {
               delay={index * 0.1}
             />
           ))}
-        </motion.div>
+        </motion.div> */}
 
         {/* CTA Section */}
         <motion.div
@@ -546,6 +588,7 @@ const AboutPage: React.FC = () => {
             className="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-shadow duration-300"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.35 }}
           >
             Get Started
           </motion.button>

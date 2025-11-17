@@ -51,6 +51,14 @@ const page = () => {
       setLoading(false);
     }
   }
+
+  // if (loading) {
+  //   return (
+  //     <div className="min-h-screen bg-[#20201e] flex items-center justify-center">
+  //       <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#f73444]"></div>
+  //     </div>
+  //   );
+  // }
   return (
     <div className="w-full grid place-items-center mt-10 ">
       <div className="w-full h-[400px] our_blog flex flex-col justify-center items-center ">
@@ -69,12 +77,17 @@ const page = () => {
           {/* <h1 className="text-4xl w-full font-semibold text-black mb-4 text-left">
             Notes From the Desk, Stories Worth Sharing
           </h1> */}
-
-          <div className="w-full flex justify-center gap-x-8 gap-y-10 flex-wrap ">
-            {blogs.map((blog, index) => (
-              <BlogCard key={index} {...blog} />
-            ))}
-          </div>
+          {loading ? (
+            <div className="w-full py-20 flex items-center justify-center">
+              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#f73444]"></div>
+            </div>
+          ) : (
+            <div className="w-full flex justify-center gap-x-8 gap-y-10 flex-wrap ">
+              {blogs.map((blog, index) => (
+                <BlogCard key={index} {...blog} />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>

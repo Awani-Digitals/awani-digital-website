@@ -151,7 +151,7 @@ export default function page({ params }: BlogDetailPageProps) {
             <img
               src={blog.image_url}
               alt={blog.title}
-              className="w-full h-96 object-cover"
+              className="w-full h-auto object-contain object-center max-h-[80vh]"
             />
           </div>
 
@@ -172,7 +172,7 @@ export default function page({ params }: BlogDetailPageProps) {
 
           <div className="mt-16 pt-8 border-t border-gray-700">
             <Link
-              href="/blog"
+              href="/blogs"
               className="inline-flex items-center gap-2 bg-[#f73444] text-[#faf5ff] px-6 py-3 rounded-lg hover:bg-[#d41234] transition-colors duration-300 font-medium"
             >
               <ArrowLeft size={20} />

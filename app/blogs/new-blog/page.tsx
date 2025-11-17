@@ -10,6 +10,7 @@ import { supabase } from "@/app/lib/supabase";
 import { uploadImageToCloudinary } from "@/app/lib/cloudinary";
 import { useAuth } from "@/contexts/AuthContext";
 import { Upload, Loader2 } from "lucide-react";
+import Link from "next/link";
 
 const ReactQuill = dynamic(() => import("react-quill-new"), {
   ssr: false,
@@ -125,6 +126,8 @@ export default function page() {
     }
   }
 
+  console.log("auth", user);
+
   async function handleLogout() {
     await signOut();
     router.push("/blogs");
@@ -139,8 +142,14 @@ export default function page() {
   return (
     <div className="min-h-screen mt-15 bg-[#20201e] py-12 px-6">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-[#faf5ff] text-4xl font-bold mb-8">
+        <h1 className="text-[#faf5ff] text-4xl font-bold mb-8 w-full flex justify-between items-center ">
           Create New Blog Post
+          <Link
+            className=" bg-primary text-white rounded-md px-3 py-2 text-base font-medium "
+            href="manage-blogs"
+          >
+            Manage Blogs
+          </Link>
         </h1>
 
         {error && (
@@ -302,7 +311,7 @@ export default function page() {
             </button>
 
             <button
-              onClick={() => router.back()}
+              onClick={handleLogout}
               className="px-6 py-3 bg-gray-700 text-[#faf5ff] rounded-lg hover:bg-gray-600 transition-colors font-medium"
             >
               LogOut
