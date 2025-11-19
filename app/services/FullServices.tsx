@@ -18,6 +18,7 @@ import { AiFillBuild } from "react-icons/ai";
 import { TbRulerMeasure2 } from "react-icons/tb";
 import { serviceData } from "@/components/Services";
 import { motion, cubicBezier } from "motion/react";
+import Link from "next/link";
 
 // const serviceData = [
 //   {
@@ -221,19 +222,30 @@ export const FullServices = () => {
               returns.
             </motion.p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <button className="bg-[#f73444] text-[#faf5ff] px-8 py-3 rounded-full font-medium hover:bg-opacity-90 transition-all suble_hover transform hover:scale-105">
+              <button
+                onClick={() => {
+                  const el = document.getElementById("services-section");
+                  if (el)
+                    el.scrollIntoView({ behavior: "smooth", block: "start" });
+                }}
+                aria-label="Scroll to services"
+                className="bg-[#f73444] text-[#faf5ff] px-8 py-3 rounded-full font-medium hover:bg-opacity-90 transition-all suble_hover transform hover:scale-105"
+              >
                 Explore Services
               </button>
-              <button className="border border-[#faf5ff] text-[#faf5ff] px-8 py-3 rounded-full font-medium hover:bg-[#faf5ff] suble_hover hover:text-[#20201e] transition-all">
+              {/* <button className="border border-[#faf5ff] text-[#faf5ff] px-8 py-3 rounded-full font-medium hover:bg-[#faf5ff] suble_hover hover:text-[#20201e] transition-all">
                 Schedule a Call
-              </button>
+              </button> */}
             </div>
           </div>
         </section>
 
         {/* Services Section */}
 
-        <section className=" w-full flex flex-col items-center justify-center bg-background py-20 px-4">
+        <section
+          id="services-section"
+          className=" w-full flex flex-col items-center justify-center bg-background py-20 px-4"
+        >
           <div className="text-center max-w-[1200px] w-full mb-16">
             <motion.h2 className="text-3xl md:text-5xl font-bold mb-4">
               Our <span className="text-primary">Services</span>
@@ -305,11 +317,11 @@ export const FullServices = () => {
             ))}
           </div>
 
-          <p className="text-center w-full bg-[#2a2a28] px-6 py-8 rounded-lg text-primary mt-14 lg:text-xl text-lg ">
+          {/* <p className="text-center w-full bg-[#2a2a28] px-6 py-8 rounded-lg text-primary mt-14 lg:text-xl text-lg ">
             Schedule a free 30 minutes strategy session with our marketing
             experts and discover how we can help you achieve your business
             goals.
-          </p>
+          </p> */}
         </section>
 
         {/* Testimonials */}
@@ -341,16 +353,23 @@ export const FullServices = () => {
                 Ready to Accelerate Your Brand Growth?
               </h2>
               <p className="text-lg mb-8 opacity-90 text-[#faf5ff] max-w-2xl mx-auto">
-                Schedule a free strategy session with our marketing experts and
-                discover how we can help you achieve your business goals.
+                Schedule a free 30 mins strategy session with our marketing
+                experts and discover how we can help you achieve your business
+                goals.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <button className="bg-[#faf5ff] text-[#20201e] px-8 py-3 rounded-full font-medium hover:bg-opacity-90 transition-all transform hover:scale-105">
-                  Book a Strategy Call
-                </button>
-                <button className="border border-[#faf5ff] text-[#faf5ff] px-8 py-3 rounded-full font-medium hover:bg-[#faf5ff] hover:text-[#f73444] transition-all">
+                <Link
+                  href={"/send-brief"}
+                  className="bg-[#faf5ff] text-[#20201e] px-8 py-3 rounded-full font-medium hover:bg-opacity-90 transition-all transform hover:scale-105"
+                >
+                  Book a Strategy Session
+                </Link>
+                <Link
+                  href={"/works"}
+                  className="border border-[#faf5ff] text-[#faf5ff] px-8 py-3 rounded-full font-medium hover:bg-[#faf5ff] hover:text-[#f73444] transition-all"
+                >
                   View Case Studies
-                </button>
+                </Link>
               </div>
             </div>
           </div>

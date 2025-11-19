@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -117,7 +118,7 @@ export function SignupPage() {
           <p className="text-[#20201e] text-center mt-6">
             Already have an account?{" "}
             <Link
-              href="/auth/login"
+              href="/admin"
               className="text-[#f73444] hover:underline font-semibold"
             >
               Sign in

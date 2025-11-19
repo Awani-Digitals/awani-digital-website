@@ -26,16 +26,19 @@ const Footer = () => {
       { name: "Contact", href: "/contact" },
     ],
     services: [
-      { name: "Digital Marketing", href: "/services#digital" },
-      { name: "Brand Development", href: "/services#brand" },
-      { name: "UI/UX Design", href: "/services#design" },
-      { name: "Event Marketing", href: "/services#events" },
+      { name: "Digital Marketing & Campaigns", href: "/services#digital" },
+      { name: "Content & Brand Development", href: "/services#brand" },
+      { name: "Experience & Design", href: "/services#design" },
+      {
+        name: "Traditional & Experiential Marketing",
+        href: "/services#events",
+      },
     ],
     resources: [
-      { name: "Blog", href: "/blogs" },
+      { name: "Blogs", href: "/blogs" },
       { name: "Case Studies", href: "/case-studies" },
       { name: "Publish Blog", href: "/admin" },
-      { name: "Careers", href: "/careers" },
+      // { name: "Careers", href: "/careers" },
     ],
   };
 

@@ -24,6 +24,7 @@ import {
   Target,
 } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 // interface StatCounterProps {
 //   value: number;
@@ -197,6 +198,8 @@ const AboutPage: React.FC = () => {
     { value: 15, label: "Years Experience", suffix: "" },
   ];
 
+  const router = useRouter();
+
   return (
     <section
       // ref={sectionRef}
@@ -292,7 +295,7 @@ const AboutPage: React.FC = () => {
             animate="animate"
           >
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Crafting Digital Excellence Since 2009
+              Crafting Digital Excellence
             </h2>
 
             <motion.p
@@ -414,9 +417,9 @@ const AboutPage: React.FC = () => {
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <h2 className="text-3xl font-bold text-white mb-6">
+              {/* <h2 className="text-3xl font-bold text-white mb-6">
                 From One Idea to a Brand You Trust
-              </h2>
+              </h2> */}
 
               <p className="text-gray-200 mb-6 leading-relaxed">
                 Omolola Dada is a passionate and results-driven marketing expert
@@ -586,6 +589,9 @@ const AboutPage: React.FC = () => {
           </p>
           <motion.button
             className="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-shadow duration-300"
+            onClick={() => {
+              router.push("/send-brief");
+            }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             transition={{ duration: 0.35 }}

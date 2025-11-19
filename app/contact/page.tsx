@@ -4,16 +4,16 @@ import { BriefPage } from "../send-brief/SendBrief";
 
 const page = () => {
   return (
-    <div className="bg-black min-h-screen grid place-items-center text-white pt-[80px] md:pt-[120px] md:px-10 px-4 ">
-      <BriefPage />
-      <section className="max-w-[1200px] mt-20 w-full gap-10 grid md:grid-cols-2 grid-cols-1   py-16 lg:py-24">
+    <div className="bg-black min-h-screen grid place-items-center text-white pt-[50px] md:pt-[50px] md:px-10 px-4 ">
+      {/* <BriefPage /> */}
+      <section className="max-w-[1200px] w-full gap-10 grid md:grid-cols-2 grid-cols-1   py-16 lg:py-24">
         <div className="space-y-12  animate-fade-in">
           <div className="space-y-4">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              Choose Another <span className="text-primary">Way</span>
+              Reach <span className="text-primary">Out</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-md">
-              You can get in touch with Oxgital with all your inquiries using
+              You can get in touch with awani with all your inquiries using
               other means.
             </p>
           </div>
@@ -53,7 +53,7 @@ const page = () => {
                   href="tel:+2349069269821"
                   className="text-foreground hover:text-primary transition-colors text-lg"
                 >
-                  +2349069269821
+                  +23400000000
                 </a>
               </div>
             </div>

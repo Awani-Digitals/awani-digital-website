@@ -92,7 +92,7 @@ export function LoginPage() {
           <p className="text-[#20201e] text-center mt-6">
             Don't have an account?{" "}
             <Link
-              href="/auth/signup"
+              href="/admin/sign-up"
               className="text-[#f73444] hover:underline font-semibold"
             >
               Sign up
