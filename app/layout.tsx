@@ -16,8 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Awani Digitals",
-  description: "Marketing and promotion company",
+  title: "Marketing and Branding agency in Lagos, Awani Digitals",
+  description:
+    "Top Branding & Digital Marketing Agency in Lagos | Grow Your Business",
 };
 
 export default function RootLayout({
