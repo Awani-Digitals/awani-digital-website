@@ -51,10 +51,9 @@ export const serviceData = [
     summary:
       "Design is how your brand feels in motion. We blend beauty, function, and technology to shape digital products and immersive interfaces that create seamless experiences people remember and return to.",
     lists: [
-      "UI/UX Design",
+      "Visual Design, Video Editing & Motion Graphics",
+      "Mobile App Design & Development",
       "Website Design & Development",
-      "Mobile App Development",
-      "Visual Design & Motion Graphics",
     ],
   },
   {

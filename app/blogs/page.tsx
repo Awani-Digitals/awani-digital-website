@@ -5,15 +5,34 @@ import React from "react";
 import { supabase } from "../lib/supabase";
 import { useEffect, useState } from "react";
 import { BlogPost } from "@/components/BlogsSection";
+import { ChevronDown } from "lucide-react";
 
+const CATEGORIES = [
+  "All",
+  "Social Media",
+  "Content",
+  "Branding & Design",
+  "Traditional",
+  "Experiential",
+  "Career",
+  "Digital Marketing",
+  "News",
+];
 const page = () => {
   const [blogs, setBlogs] = useState<BlogPost[]>([]);
+  const [filteredBlogs, setFilteredBlogs] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [blogCategory, setBlogCategory] = useState("All");
+  const [openBlogCategory, setOpenBlogCategory] = useState(false);
 
   useEffect(() => {
     fetchBlogs();
   }, []);
+
+  useEffect(() => {
+    filterBlogs();
+  }, [blogs, blogCategory]);
 
   async function fetchBlogs() {
     try {
@@ -52,6 +71,15 @@ const page = () => {
     }
   }
 
+  const filterBlogs = () => {
+    if (blogCategory === "All") {
+      setFilteredBlogs(blogs);
+      return;
+    }
+    const filtered = blogs.filter((b) => b.category === blogCategory);
+    setFilteredBlogs(filtered);
+  };
+
   // if (loading) {
   //   return (
   //     <div className="min-h-screen bg-[#20201e] flex items-center justify-center">
@@ -82,10 +110,38 @@ const page = () => {
               <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#f73444]"></div>
             </div>
           ) : (
-            <div className="w-full flex justify-center gap-x-8 gap-y-10 flex-wrap ">
-              {blogs.map((blog, index) => (
-                <BlogCard key={index} {...blog} />
-              ))}
+            <div className="w-full flex flex-col gap-10 justify-center items-center ">
+              <div className="w-full">
+                <p className="mb-1 font-medium">Filter by Categories:</p>
+
+                <div
+                  onClick={() => setOpenBlogCategory((prev) => !prev)}
+                  className=" max-w-[200px] border border-primary rounded-xl flex justify-between items-center gap-1 w-full px-4 py-1.5 pl-7 bg-[#f7344411] relative  "
+                >
+                  {blogCategory} <ChevronDown />
+                  {openBlogCategory && (
+                    <ul className="flex w-full left-0 rounded-lg bg-red-50 flex-col absolute top-9 pb-3 z-30 ">
+                      {CATEGORIES.map((c, index) => (
+                        <li
+                          onClick={() => setBlogCategory(c)}
+                          className="text-black w-full pl-6 px-3 py-2 border-b border-primary "
+                        >
+                          {c}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </div>
+              <div className="w-full flex justify-center gap-x-8 gap-y-10 flex-wrap ">
+                {filteredBlogs.length > 0 ? (
+                  filteredBlogs.map((blog, index) => (
+                    <BlogCard key={index} {...blog} />
+                  ))
+                ) : (
+                  <p>No Blog Post to display for this category...</p>
+                )}
+              </div>
             </div>
           )}
         </div>

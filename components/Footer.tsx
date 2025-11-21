@@ -14,6 +14,8 @@ import {
   Heart,
 } from "lucide-react";
 import { FaXTwitter } from "react-icons/fa6";
+import { RiTiktokLine } from "react-icons/ri";
+import { FiFacebook } from "react-icons/fi";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -26,17 +28,23 @@ const Footer = () => {
       { name: "Contact", href: "/contact" },
     ],
     services: [
-      { name: "Digital Marketing & Campaigns", href: "/services#digital" },
-      { name: "Content & Brand Development", href: "/services#brand" },
-      { name: "Experience & Design", href: "/services#design" },
+      {
+        name: "Digital Marketing & Campaigns",
+        href: "/services#services-section",
+      },
+      {
+        name: "Content & Brand Development",
+        href: "/services#services-section",
+      },
+      { name: "Experience & Design", href: "/services#services-section" },
       {
         name: "Traditional & Experiential Marketing",
-        href: "/services#events",
+        href: "/services#services-section",
       },
     ],
     resources: [
       { name: "Blogs", href: "/blogs" },
-      { name: "Case Studies", href: "/case-studies" },
+      { name: "Case Studies", href: "/works" },
       { name: "Publish Blog", href: "/admin" },
       // { name: "Careers", href: "/careers" },
     ],
@@ -57,6 +65,16 @@ const Footer = () => {
       name: "Twitter",
       href: "https://x.com/awanidigitals_?t=gZfHMzWteVBHLcuWQuEEcw&s=09",
       icon: <FaXTwitter className="w-5 h-5" />,
+    },
+    {
+      name: "Tiktok",
+      href: "https://www.tiktok.com/@awanidigitals?_r=1&_t=ZS-91ZMjKQf7af",
+      icon: <RiTiktokLine className="w-5 h-5" />,
+    },
+    {
+      name: "Facebook",
+      href: "https://www.facebook.com/share/1C83B2CceP/",
+      icon: <FiFacebook className="w-5 h-5" />,
     },
   ];
 
@@ -213,7 +231,7 @@ const Footer = () => {
             © {currentYear} Awani Digitals.
           </p>
 
-          <div className="flex gap-6 text-sm">
+          {/* <div className="flex gap-6 text-sm">
             <Link
               href="/privacy"
               className="text-white hover:underline transition-colors duration-300"
@@ -226,7 +244,7 @@ const Footer = () => {
             >
               Terms of Service
             </Link>
-          </div>
+          </div> */}
         </motion.div>
       </div>
     </footer>

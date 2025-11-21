@@ -55,9 +55,9 @@ const page = ({ params }: JobPageProps) => {
 
             <p>{work.solution}</p>
             <div className="ml-4">
-              <h4 className="text-lg my-3 text-primary font-medium">
+              {/* <h4 className="text-lg my-3 text-primary font-medium">
                 Our Approach;
-              </h4>
+              </h4> */}
               <ul className="custom-list space-y-2  ">
                 {work.approach.map((item, index) => (
                   <li className="mb-2" key={index}>
@@ -74,9 +74,9 @@ const page = ({ params }: JobPageProps) => {
             <p className="">{work.resultHeading}</p>
 
             <div className="ml-4">
-              <h4 className="text-lg my-3 text-primary font-medium">
+              {/* <h4 className="text-lg my-3 text-primary font-medium">
                 Metrics;
-              </h4>
+              </h4> */}
               <ul className="custom-list space-y-2  ">
                 {work.results.map((item, index) => (
                   <li className="mb-2" key={index}>

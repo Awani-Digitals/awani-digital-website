@@ -276,15 +276,15 @@ export const FullServices = () => {
                   </ul>
                 </div>
 
-                <a
-                  href="#"
+                <Link
+                  href="/send-brief"
                   className="inline-flex mt-6 items-center text-[#f73444] font-medium text-sm hover:underline suble_hover "
                 >
                   Send A Brief
                   <span className="material-symbols-outlined text-sm ml-1">
                     <MoveRight />
                   </span>
-                </a>
+                </Link>
               </div>
             ))}
           </div>
