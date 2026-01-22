@@ -18,6 +18,13 @@ const WorksCard = ({
   industry: string;
   blob: string;
 }) => {
+  // Truncate text to first 17 words
+  const truncateWords = (text: string, wordLimit: number = 17): string => {
+    const words = text.split(/\s+/);
+    if (words.length <= wordLimit) return text;
+    return words.slice(0, wordLimit).join(" ") + "...";
+  };
+
   return (
     <div className=" flex max-w-[350px] w-full flex-col rounded-lg gap-3 pb-2 bg-secondary ">
       {/* image with dark overlay and centered text */}
@@ -45,7 +52,7 @@ const WorksCard = ({
           {title}{" "}
           <span className="text-gray-500 text-[10px] ">({industry})</span>
         </h1> */}
-        <p className=" w-full text-sm ">{solution}</p>
+        <p className=" w-full text-sm ">{truncateWords(solution)}</p>
 
         <div className="w-full flex justify-between items-center mt-4 text-xs font-medium text-gray-500 ">
           <div className="w-full flex font-extralight gap-1 ">

@@ -13,7 +13,7 @@ const page = ({ params }: JobPageProps) => {
   const { brand } = params;
   const work = worksData.find(
     (work) =>
-      work.title.toLowerCase().replace(/\s+/g, "-") === brand.toLowerCase()
+      work.title.toLowerCase().replace(/\s+/g, "-") === brand.toLowerCase(),
   );
 
   if (!work) {
@@ -25,7 +25,7 @@ const page = ({ params }: JobPageProps) => {
   return (
     <div className=" w-full grid place-items-center text-secondary ">
       <div
-        className="w-full h-[470px] rounded-lg bg-cover bg-top bg-no-repeat relative overflow-hidden shadow-lg px-8  flex justify-center animate-fadeIn"
+        className="w-full h-[470px] rounded-lg bg-cover bg-center bg-no-repeat relative overflow-hidden shadow-lg px-8  flex justify-center animate-fadeIn"
         style={{ backgroundImage: bgUrl }}
       >
         {/* subtle dark overlay for contrast */}

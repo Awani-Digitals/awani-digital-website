@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { Trash2 } from "lucide-react";
+import { Pencil, Trash2 } from "lucide-react";
 import { easeInOut, motion } from "motion/react";
+import { useRouter } from "next/navigation";
 interface BlogCardProps {
   id: string;
   title: string;
@@ -43,6 +44,8 @@ export function BlogCard({
   slug,
   openDeleteConfirm,
 }: BlogCardProps) {
+  const router = useRouter();
+
   return (
     <motion.div
       variants={BlogCardVariants}
@@ -103,17 +106,30 @@ export function BlogCard({
       </Link>
 
       {openDeleteConfirm !== undefined && (
-        <button
-          type="button"
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            openDeleteConfirm(id, title);
-          }}
-          className="bg-primary rounded-md px-3 py-1.5 absolute top-4 right-4 text-white z-20"
-        >
-          <Trash2 size={20} />
-        </button>
+        <div className="absolute top-4 right-4 flex gap-2">
+          <button
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              router.push(`/blogs/edit-blog/${id}`);
+            }}
+            className="bg-primary rounded-md px-3 py-1.5  text-white z-20"
+          >
+            <Pencil size={15} />
+          </button>
+          <button
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              openDeleteConfirm(id, title);
+            }}
+            className="bg-primary rounded-md px-3 py-1.5  text-white z-20"
+          >
+            <Trash2 size={15} />
+          </button>
+        </div>
       )}
     </motion.div>
   );

@@ -27,7 +27,13 @@ const CATEGORIES = [
   "News",
 ];
 
-export default function NewBlog({ id, slug }: { id?: string; slug?: string }) {
+export default function UploadBlog({
+  id,
+  slug,
+}: {
+  id?: string;
+  slug?: string;
+}) {
   const [title, setTitle] = useState("");
   const [excerpt, setExcerpt] = useState("");
   const [content, setContent] = useState("");
@@ -244,11 +250,11 @@ export default function NewBlog({ id, slug }: { id?: string; slug?: string }) {
     router.push("/blogs");
   }
 
-  useEffect(() => {
-    if (!user && !id) {
-      router.push("/admin");
-    }
-  });
+  //   useEffect(() => {
+  //     if (!user) {
+  //       router.push("/admin");
+  //     }
+  //   });
 
   useEffect(() => {
     fetchBlog();
@@ -257,7 +263,7 @@ export default function NewBlog({ id, slug }: { id?: string; slug?: string }) {
   return (
     <div className="min-h-screen w-full mt-15 bg-[#20201e] py-12 px-6">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-[#faf5ff] text-4xl font-bold mb-8 w-full flex flex-col md:flex-row justify-between items-start gap-y-3 md:items-center ">
+        <h1 className="text-[#faf5ff] text-4xl font-bold mb-8 w-full flex justify-between items-center ">
           Create New Blog Post
           <Link
             className=" bg-primary text-white rounded-md px-3 py-2 text-base font-medium "
@@ -412,22 +418,22 @@ export default function NewBlog({ id, slug }: { id?: string; slug?: string }) {
           <div className="flex gap-4 pt-6">
             <button
               onClick={() => router.back()}
-              className="md:px-6 md:py-3 px-3 py-2  bg-gray-700 text-[#faf5ff] rounded-lg hover:bg-gray-600 transition-colors font-medium"
+              className="px-6 py-3 bg-gray-700 text-[#faf5ff] rounded-lg hover:bg-gray-600 transition-colors font-medium"
             >
               Cancel
             </button>
             <button
               onClick={id ? handleUpdate : handlePublish}
               disabled={loading}
-              className="flex-1 md:px-6 md:py-3 px-3 py-2 bg-[#f73444] text-[#faf5ff] rounded-lg hover:bg-[#d41234] transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="flex-1 px-6 py-3 bg-[#f73444] text-[#faf5ff] rounded-lg hover:bg-[#d41234] transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
               {loading && <Loader2 size={20} className="animate-spin" />}
-              {loading ? "Publishing..." : id ? "Update Blog" : "Publish Blog"}
+              {loading ? "Publishing..." : "Publish Blog"}
             </button>
 
             <button
               onClick={handleLogout}
-              className="md:px-6 md:py-3 px-3 py-2 bg-gray-700 text-[#faf5ff] rounded-lg hover:bg-gray-600 transition-colors font-medium"
+              className="px-6 py-3 bg-gray-700 text-[#faf5ff] rounded-lg hover:bg-gray-600 transition-colors font-medium"
             >
               LogOut
             </button>
