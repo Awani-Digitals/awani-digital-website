@@ -188,12 +188,20 @@ Two main tables:
 | consent_given | boolean | Privacy consent flag |
 | created_at | timestamp | Submission timestamp |
 
+**`Restrictions`**:
+
+- Database goes to sleep after 7 days of inactivity
+
 #### 3. Storage
 
 - Bucket: `Awani Digitals Docs`
 - Used for storing client-uploaded documents (PDF, DOCX, ZIP)
 - Maximum file size: 10MB
 - Public URLs are generated and sent via EmailJS
+
+**`Restrictions`**:
+
+- Maximum file storage of 50mb
 
 **Client Setup:**
 
@@ -252,6 +260,10 @@ export async function uploadImageToCloudinary(file: File): Promise<string> {
 2. Create an upload preset named `awaniDigitals`
 3. Set signing mode to **Unsigned**
 
+**`Restrictions`**:
+
+- Monthly limit of 20 credits
+
 ---
 
 ### EmailJS
@@ -283,6 +295,10 @@ The following variables should be configured in your EmailJS template:
 2. Connect your email service (Gmail, Outlook, etc.)
 3. Create a template with the variables listed above
 4. Copy Service ID, Template ID, and Public Key to your `.env`
+
+**`Restrictions`**:
+
+- Maximum of 200 emails per months
 
 ---
 
