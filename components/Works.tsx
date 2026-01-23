@@ -2,7 +2,7 @@
 
 import React from "react";
 import { MdOutlineWorkspacePremium } from "react-icons/md";
-import { motion } from "framer-motion";
+import { motion, easeIn } from "framer-motion";
 import WorksCard from "./WorksCard";
 import { TestimonialCard } from "@/app/services/FullServices";
 import { testimonials } from "@/app/Workdata/Works";
@@ -52,10 +52,17 @@ const Works = () => {
       <section className="py-20 text-[#faf5ff] w-full bg-[#2a2a28]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              What <span className="text-primary"> Our Clients</span> Say
+            <h2 className="text-3xl md:text-4xl font-bold mb-2">
+              What <span className="text-primary "> Our Clients</span> Say
             </h2>
-            <p className="max-w-2xl mx-auto text-lg opacity-80">
+            <motion.div
+              className="w-24 h-1 bg-primary mx-auto"
+              initial={{ width: 0, opacity: 0 }}
+              whileInView={{ width: 96, opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.4, ease: easeIn }}
+            />
+
+            <p className="max-w-2xl mx-auto mt-4 text-lg opacity-80">
               Don't just take our word for it, hear from the brands we've helped
               grow.
             </p>
