@@ -160,6 +160,7 @@ export default function NewBlog({ id, slug }: { id?: string; slug?: string }) {
         router.push("/blogs");
       }, 2000);
     } catch (err) {
+      console.log(err);
       setError(err instanceof Error ? err.message : "Failed to publish blog");
       setLoading(false);
     }
@@ -237,7 +238,7 @@ export default function NewBlog({ id, slug }: { id?: string; slug?: string }) {
     }
   }
 
-  console.log("auth", user);
+  // console.log("auth", user);
 
   async function handleLogout() {
     await signOut();

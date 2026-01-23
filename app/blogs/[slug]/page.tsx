@@ -89,7 +89,7 @@ export default function page({ params }: BlogDetailPageProps) {
       year: "numeric",
       month: "long",
       day: "numeric",
-    }
+    },
   );
 
   return (
@@ -161,11 +161,15 @@ export default function page({ params }: BlogDetailPageProps) {
               __html: blog.content
                 .replace(
                   /<h2>/g,
-                  '<h2 class="text-3xl font-bold text-[#faf5ff] mt-8 mb-4">'
+                  '<h2 class="text-3xl font-bold !text-[#faf5ff] mt-8 mb-4">',
                 )
                 .replace(
                   /<p>/g,
-                  '<p class="text-gray-300 text-lg leading-relaxed mb-4">'
+                  '<p class="!text-gray-300 text-base leading-relaxed mb-4">',
+                )
+                .replace(
+                  /<span[^>]*style="[^"]*"[^>]*>/g,
+                  '<span class="!text-gray-300">',
                 ),
             }}
           />

@@ -34,7 +34,7 @@ export function BriefPage() {
   const [fileName, setFileName] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [budgetValue, setBudgetValue] = useState<string>(
-    formData.budgetRange || ""
+    formData.budgetRange || "",
   );
   const [budgetRaw, setBudgetRaw] = useState<string>(""); // store digits only
 
@@ -119,7 +119,7 @@ export function BriefPage() {
       // ✅ Upload file if it exists
       if (fileName && file) {
         const { data: uploadData, error: uploadError } = await supabase.storage
-          .from("Awani Digitals docs") // your bucket name
+          .from("Awani Digitals Docs") // your bucket name
           .upload(`uploads/${Date.now()}_${file.name}`, file);
 
         if (uploadError) throw uploadError;
@@ -160,7 +160,7 @@ export function BriefPage() {
 
       if (!serviceId || !templateId || !publicKey) {
         throw new Error(
-          "EmailJS environment variables (NEXT_PUBLIC_EMAILJS_SERVICE_ID, NEXT_PUBLIC_EMAILJS_TEMPLATE_ID, NEXT_PUBLIC_EMAILJS_PUBLIC_KEY) must be set."
+          "EmailJS environment variables (NEXT_PUBLIC_EMAILJS_SERVICE_ID, NEXT_PUBLIC_EMAILJS_TEMPLATE_ID, NEXT_PUBLIC_EMAILJS_PUBLIC_KEY) must be set.",
         );
       }
 
@@ -168,7 +168,7 @@ export function BriefPage() {
         serviceId,
         templateId,
         formattedBriefs,
-        publicKey
+        publicKey,
       );
 
       console.log(response);
@@ -193,7 +193,7 @@ export function BriefPage() {
       setError(
         err instanceof Error
           ? err.message
-          : "Failed to submit brief. Please try again."
+          : "Failed to submit brief. Please try again.",
       );
     } finally {
       setLoading(false);

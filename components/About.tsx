@@ -16,72 +16,72 @@ import { Sparkles, Users, TrendingUp, Target } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-// interface StatCounterProps {
-//   value: number;
-//   label: string;
-//   suffix: string;
-//   delay: number;
-// }
+interface StatCounterProps {
+  value: number;
+  label: string;
+  suffix: string;
+  delay: number;
+}
 
-// const StatCounter: React.FC<StatCounterProps> = ({
-//   value,
-//   label,
-//   suffix,
-//   delay,
-// }) => {
-//   const [count, setCount] = useState(0);
-//   const countRef = useRef<HTMLDivElement>(null);
-//   const isInView = useInView(countRef, { once: false, amount: 0.5 });
+const StatCounter: React.FC<StatCounterProps> = ({
+  value,
+  label,
+  suffix,
+  delay,
+}) => {
+  const [count, setCount] = useState(0);
+  const countRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(countRef, { once: false, amount: 0.5 });
 
-//   useEffect(() => {
-//     if (isInView) {
-//       let start = 0;
-//       const duration = 2000;
-//       const increment = value / (duration / 16);
+  useEffect(() => {
+    if (isInView) {
+      let start = 0;
+      const duration = 2000;
+      const increment = value / (duration / 16);
 
-//       const timer = setInterval(() => {
-//         start += increment;
-//         if (start >= value) {
-//           setCount(value);
-//           clearInterval(timer);
-//         } else {
-//           setCount(Math.floor(start));
-//         }
-//       }, 16);
+      const timer = setInterval(() => {
+        start += increment;
+        if (start >= value) {
+          setCount(value);
+          clearInterval(timer);
+        } else {
+          setCount(Math.floor(start));
+        }
+      }, 16);
 
-//       return () => clearInterval(timer);
-//     } else {
-//       setCount(0);
-//     }
-//   }, [isInView, value]);
+      return () => clearInterval(timer);
+    } else {
+      setCount(0);
+    }
+  }, [isInView, value]);
 
-//   return (
-//     <motion.div
-//       ref={countRef}
-//       className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300"
-//       initial={{ opacity: 0, y: 20 }}
-//       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-//       transition={{ duration: 0.6, delay }}
-//     >
-//       <div className="text-4xl font-bold text-primary mb-2">
-//         {count}
-//         {suffix}
-//       </div>
-//       <div className="text-gray-600 text-sm">{label}</div>
-//     </motion.div>
-//   );
-// };
+  return (
+    <motion.div
+      ref={countRef}
+      className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300"
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      transition={{ duration: 0.6, delay }}
+    >
+      <div className="text-4xl font-bold text-primary mb-2">
+        {count}
+        {suffix}
+      </div>
+      <div className="text-gray-600 text-sm">{label}</div>
+    </motion.div>
+  );
+};
 
 const AboutUs: React.FC = () => {
   const router = useRouter();
-  // const sectionRef = useRef<HTMLDivElement>(null);
-  // const { scrollYProgress } = useScroll({
-  //   target: sectionRef,
-  //   offset: ["start end", "end start"],
-  // });
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
 
-  // const y1 = useTransform(scrollYProgress, [0, 1], [0, -30]);
-  // const y2 = useTransform(scrollYProgress, [0, 1], [0, 30]);
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, -30]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, 30]);
 
   // const stickers = [
   //   {
@@ -134,12 +134,12 @@ const AboutUs: React.FC = () => {
   //   },
   // ];
 
-  // const stats = [
-  //   { value: 500, label: "Happy Customers", suffix: "+" },
-  //   { value: 1200, label: "Projects Completed", suffix: "+" },
-  //   { value: 98, label: "Satisfaction Rate", suffix: "%" },
-  //   { value: 15, label: "Years Experience", suffix: "" },
-  // ];
+  const stats = [
+    { value: 20, label: "Clients Served", suffix: "+" },
+    { value: 3, label: "Impression Driven", suffix: "M+" },
+    { value: 50, label: "Organic Community Built", suffix: "K+" },
+    { value: 2, label: "Leads Generated", suffix: "K+" },
+  ];
 
   // VARIANTs
   const leftTextVariants = {
@@ -190,7 +190,7 @@ const AboutUs: React.FC = () => {
   };
   return (
     <section
-      // ref={sectionRef}
+      ref={sectionRef}
       className="min-h-screen w-full bg-gradient-to-br from-blue-50 via-white to-purple-50 py-20 px-4 overflow-hidden relative"
     >
       <div className="container mx-auto max-w-[1200px] w-full relative z-20">
@@ -353,7 +353,7 @@ const AboutUs: React.FC = () => {
         </div>
 
         {/* Stats Section */}
-        {/* <motion.div
+        <motion.div
           className="grid grid-cols-2 md:grid-cols-4 gap-6"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -368,7 +368,7 @@ const AboutUs: React.FC = () => {
               delay={index * 0.1}
             />
           ))}
-        </motion.div> */}
+        </motion.div>
 
         {/* CTA Section */}
         <motion.div

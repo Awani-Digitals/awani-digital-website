@@ -36,7 +36,7 @@ export function SignupPage() {
       setError(error.message);
       setLoading(false);
     } else {
-      router.push("/auth/login");
+      router.push("/admin");
     }
   }
 

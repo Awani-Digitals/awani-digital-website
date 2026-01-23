@@ -2,7 +2,7 @@ const CLOUDINARY_CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
 console.log(
   "Cloudinary Cloud Name:",
   CLOUDINARY_CLOUD_NAME,
-  process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
+  process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
 );
 
 if (!CLOUDINARY_CLOUD_NAME) {
@@ -12,13 +12,13 @@ if (!CLOUDINARY_CLOUD_NAME) {
 export async function uploadImageToCloudinary(file: File): Promise<string> {
   if (!CLOUDINARY_CLOUD_NAME) {
     throw new Error(
-      "Cloudinary is not configured. Please set VITE_CLOUDINARY_CLOUD_NAME in your .env file"
+      "Cloudinary is not configured. Please set VITE_CLOUDINARY_CLOUD_NAME in your .env file",
     );
   }
 
   const formData = new FormData();
   formData.append("file", file);
-  formData.append("upload_preset", "unsigned_upload");
+  formData.append("upload_preset", "awaniDigitals");
 
   try {
     const response = await fetch(
@@ -26,7 +26,7 @@ export async function uploadImageToCloudinary(file: File): Promise<string> {
       {
         method: "POST",
         body: formData,
-      }
+      },
     );
 
     const data = await response.json();
@@ -44,7 +44,7 @@ export async function uploadImageToCloudinary(file: File): Promise<string> {
   } catch (error) {
     const message = error instanceof Error ? error.message : "Unknown error";
     throw new Error(
-      `Image upload failed: ${message}. Make sure you have an 'unsigned_upload' preset configured in Cloudinary dashboard.`
+      `Image upload failed: ${message}. Make sure you have an 'unsigned_upload' preset configured in Cloudinary dashboard.`,
     );
   }
 }
