@@ -278,7 +278,7 @@ const AboutUs: React.FC = () => {
             whileInView="animate"
           >
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Crafting Digital Excellence
+              Crafting Marketing Excellence
             </h2>
 
             <motion.p

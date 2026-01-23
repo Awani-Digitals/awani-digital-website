@@ -123,14 +123,14 @@ export const TestimonialCard = ({
       </div> */}
       <p className="italic mb-6 opacity-90  ">{content}</p>
       <div className="flex items-center">
-        <div className="w-10 h-10 grid place-items-center border border-gray-500 rounded-full mr-4 object-center object-contain overflow-hidden ">
+        <div className="w-10 h-10 grid place-items-center border border-gray-500 rounded-full mr-4 object-center object-cover overflow-hidden ">
           {image ? (
             <Image
               src={`/${image}`}
               alt={name}
               width={40}
               height={40}
-              className="rounded-full object-center object-contain"
+              className=" object-center object-cover aspect-square "
             />
           ) : (
             <FaUser size={20} />
@@ -345,10 +345,10 @@ export const FullServices = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                What Clients Say
+                What Our Clients Say
               </h2>
               <p className="max-w-2xl mx-auto text-lg opacity-80">
-                Don't just take our word for it — hear from the brands we've
+                Don't just take our word for it, hear from the brands we've
                 helped grow.
               </p>
             </div>

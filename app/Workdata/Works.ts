@@ -157,7 +157,7 @@ export const testimonials: TestimonialType[] = [
       '"Awani Digitals transformed our social media presence with a strong mix of creativity and strategy. Their professionalism, clarity, and deep understanding of our brand made the collaboration seamless, and the results truly speak for themselves."',
     name: "Aisha Suraiya HD",
     position: "Communications Lead, Sagad Farms",
-    image: "sagad2.png",
+    image: "sagad7.jpeg",
   },
   {
     // starNo: 4,

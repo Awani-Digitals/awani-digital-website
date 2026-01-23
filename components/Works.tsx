@@ -53,11 +53,11 @@ const Works = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              What Clients Say
+              What Our Clients Say
             </h2>
             <p className="max-w-2xl mx-auto text-lg opacity-80">
-              Don't just take our word for it — hear from the brands we've
-              helped grow.
+              Don't just take our word for it, hear from the brands we've helped
+              grow.
             </p>
           </div>
 
