@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import {
   BriefcaseBusiness,
   Presentation,
@@ -17,6 +18,7 @@ import { FaUser } from "react-icons/fa";
 import { AiFillBuild } from "react-icons/ai";
 import { TbRulerMeasure2 } from "react-icons/tb";
 import { serviceData } from "@/components/Services";
+import { testimonials } from "../Workdata/Works";
 import { motion, cubicBezier } from "motion/react";
 import Link from "next/link";
 
@@ -100,27 +102,39 @@ const approach = [
 ];
 
 export const TestimonialCard = ({
-  starNo,
+  // starNo,
   content,
   name,
   position,
+  image,
 }: {
-  starNo: number;
+  // starNo: number;
   content: string;
   name: string;
   position: string;
+  image?: string;
 }) => {
   return (
-    <div className="bg-[#20201e] p-8 rounded-xl">
-      <div className="flex items-center gap-1 text-[#f73444] mb-4">
+    <div className="bg-[#20201e] flex flex-col justify-between p-8 px-6 rounded-xl">
+      {/* <div className="flex items-center gap-1 text-[#f73444] mb-4">
         {Array.from({ length: starNo }, (_, i) => (
           <FaStar />
         ))}
-      </div>
-      <p className="italic mb-6 opacity-90">{content}</p>
+      </div> */}
+      <p className="italic mb-6 opacity-90  ">{content}</p>
       <div className="flex items-center">
-        <div className="w-10 h-10 grid place-items-center bg-gray-500 rounded-full mr-4">
-          <FaUser size={20} />
+        <div className="w-10 h-10 grid place-items-center border border-gray-500 rounded-full mr-4 object-center object-contain overflow-hidden ">
+          {image ? (
+            <Image
+              src={`/${image}`}
+              alt={name}
+              width={40}
+              height={40}
+              className="rounded-full object-center object-contain"
+            />
+          ) : (
+            <FaUser size={20} />
+          )}
         </div>
         <div>
           <h4 className="font-bold">{name}</h4>
@@ -131,30 +145,32 @@ export const TestimonialCard = ({
   );
 };
 
-const testimonials = [
-  {
-    starNo: 5,
-    content:
-      "Awani Digitals transformed our digital presence. Their strategic approach helped us increase our conversion rate by 45% in just three months.",
-    name: "Sarah Johnson",
-    position: "CMO TechFusion",
-  },
-  {
-    starNo: 4,
-    content:
-      "Awani Digitals transformed our digital presence. Their strategic approach helped us increase our conversion rate by 45% in just three months.",
-    name: "Sarah Johnson",
-    position: "CMO TechFusion",
-  },
+// const testimonials = [
+//   {
+//     // starNo: 5,
+//     content:
+//       '"Awani Digitals transformed our social media presence with a strong mix of creativity and strategy. Their professionalism, clarity, and deep understanding of our brand made the collaboration seamless, and the results truly speak for themselves."',
+//     name: "Aisha Suraiya HD",
+//     position: "Communications Lead, Sagad Farms",
+//     image: "sagad2.png",
+//   },
+//   {
+//     // starNo: 4,
+//     content:
+//       '"Awani Digitals has been a great addition to our brand. Their hard work, strategic input, and commitment contributed significantly to our growth and overall digital direction. Working with their team has been a valuable experience."',
+//     name: "Tola Israel",
+//     position: "Founder, Charis Israel Academy",
+//     image: "CI1.png",
+//   },
 
-  {
-    starNo: 5,
-    content:
-      "Awani Digitals transformed our digital presence. Their strategic approach helped us increase our conversion rate by 45% in just three months.",
-    name: "Sarah Johnson",
-    position: "CMO TechFusion",
-  },
-];
+//   // {
+//   //   starNo: 5,
+//   //   content:
+//   //     "Awani Digitals transformed our digital presence. Their strategic approach helped us increase our conversion rate by 45% in just three months.",
+//   //   name: "Sarah Johnson",
+//   //   position: "CMO TechFusion",
+//   // },
+// ];
 
 const titleVariant = {
   initial: {

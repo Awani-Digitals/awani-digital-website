@@ -4,14 +4,16 @@ import React from "react";
 import { MdOutlineWorkspacePremium } from "react-icons/md";
 import { motion } from "framer-motion";
 import WorksCard from "./WorksCard";
+import { TestimonialCard } from "@/app/services/FullServices";
+import { testimonials } from "@/app/Workdata/Works";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { worksData } from "@/app/Workdata/Works";
 
 const Works = () => {
   return (
-    <div className="w-full bg-background grid place-items-center px-4  ">
-      <div className="max-w-[1200px] w-full flex flex-col gap-10 items-center py-20">
+    <div className="w-full bg-background grid place-items-center   ">
+      <div className="max-w-[1200px] px-4 w-full flex flex-col gap-10 items-center py-20">
         <h1 className=" flex gap-2 px-4 mb-4 items-center text-sm font-semibold text-primary uppercase w-full  ">
           {" "}
           <MdOutlineWorkspacePremium className="w-4 h-4" /> Our Works
@@ -45,6 +47,27 @@ const Works = () => {
           </Link>
         </div>
       </div>
+
+      {/* Testimonials */}
+      <section className="py-20 text-[#faf5ff] w-full bg-[#2a2a28]">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              What Clients Say
+            </h2>
+            <p className="max-w-2xl mx-auto text-lg opacity-80">
+              Don't just take our word for it — hear from the brands we've
+              helped grow.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {testimonials.map((t, index) => (
+              <TestimonialCard key={index} {...t} />
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

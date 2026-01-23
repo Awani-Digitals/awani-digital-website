@@ -13,6 +13,13 @@ export type FullWorkType = {
   conclusion: string;
   //   link: string;
 };
+export type TestimonialType = {
+  // starNo: number;
+  content: string;
+  name: string;
+  position: string;
+  image?: string;
+};
 
 export const worksData: FullWorkType[] = [
   {
@@ -57,8 +64,9 @@ export const worksData: FullWorkType[] = [
     blob: "charis-israel-academy",
     industry: "Education / Beauty / Digital Learning",
     images: [
-      "/CI1.png",
       "/CI2.jpg",
+      // "/CI1.png",
+
       "/CI3.jpg",
       "/CI4.jpg",
       "/CI5.jpg",
@@ -139,5 +147,32 @@ export const worksData: FullWorkType[] = [
   //   ],
   //   conclusion:
   //     "Today, Sagad Farms stands as the leading Nigerian rice brand with the highest digital footprint, proving that consistency, storytelling, and strategic marketing can turn local ambition into national recognition.",
+  // },
+];
+
+export const testimonials: TestimonialType[] = [
+  {
+    // starNo: 5,
+    content:
+      '"Awani Digitals transformed our social media presence with a strong mix of creativity and strategy. Their professionalism, clarity, and deep understanding of our brand made the collaboration seamless, and the results truly speak for themselves."',
+    name: "Aisha Suraiya HD",
+    position: "Communications Lead, Sagad Farms",
+    image: "sagad2.png",
+  },
+  {
+    // starNo: 4,
+    content:
+      '"Awani Digitals has been a great addition to our brand. Their hard work, strategic input, and commitment contributed significantly to our growth and overall digital direction. Working with their team has been a valuable experience."',
+    name: "Tola Israel",
+    position: "Founder, Charis Israel Academy",
+    image: "CI1.png",
+  },
+
+  // {
+  //   starNo: 5,
+  //   content:
+  //     "Awani Digitals transformed our digital presence. Their strategic approach helped us increase our conversion rate by 45% in just three months.",
+  //   name: "Sarah Johnson",
+  //   position: "CMO TechFusion",
   // },
 ];

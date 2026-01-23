@@ -55,7 +55,7 @@ const page = () => {
               year: "numeric",
               month: "short",
               day: "numeric",
-            }
+            },
           ),
           category: post.category,
           image_url: post.image_url,
@@ -120,11 +120,12 @@ const page = () => {
                 >
                   {blogCategory} <ChevronDown />
                   {openBlogCategory && (
-                    <ul className="flex w-full left-0 rounded-lg bg-red-50 flex-col absolute top-9 pb-3 z-30 ">
+                    <ul className="flex w-full left-0 rounded-lg bg-gray-50 flex-col shadow-lg absolute top-9 pb-3 z-30 ">
                       {CATEGORIES.map((c, index) => (
                         <li
+                          key={index}
                           onClick={() => setBlogCategory(c)}
-                          className="text-black w-full pl-6 px-3 py-2 border-b border-primary "
+                          className="text-black w-full pl-6 px-3 py-2 border-b border-primary/30 "
                         >
                           {c}
                         </li>

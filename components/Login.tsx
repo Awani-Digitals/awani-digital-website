@@ -89,7 +89,7 @@ export function LoginPage() {
             </button>
           </form>
 
-          <p className="text-[#20201e] text-center mt-6">
+          {/* <p className="text-[#20201e] text-center mt-6">
             Don't have an account?{" "}
             <Link
               href="/admin/sign-up"
@@ -97,7 +97,7 @@ export function LoginPage() {
             >
               Sign up
             </Link>
-          </p>
+          </p> */}
         </div>
       </div>
     </div>
