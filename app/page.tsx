@@ -7,7 +7,7 @@ import Works from "@/components/Works";
 
 export default function Home() {
   return (
-    <div className="">
+    <div className=" overflow-hidden">
       <HeroSection />
       <AboutUs />
       <Services />

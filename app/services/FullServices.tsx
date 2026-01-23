@@ -310,7 +310,7 @@ export const FullServices = () => {
         <section className="max-w-[1200px] w-full mx-auto py-20 px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Our Approach
+              Our <span className="text-primary">Approach</span>
             </h2>
             <p className="max-w-2xl mx-auto text-lg opacity-80">
               We combine data, design, and storytelling to create marketing that
@@ -345,7 +345,7 @@ export const FullServices = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                What Our Clients Say
+                What <span className="text-primary">Our Clients</span> Say
               </h2>
               <p className="max-w-2xl mx-auto text-lg opacity-80">
                 Don't just take our word for it, hear from the brands we've
