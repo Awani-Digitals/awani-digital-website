@@ -13,8 +13,8 @@ const page = () => {
               Reach <span className="text-primary">Out</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-md">
-              You can get in touch with awani with all your inquiries using
-              other means.
+              You can get in touch with <span className=" ">us</span> with all
+              your inquiries using other means.
             </p>
           </div>
 
