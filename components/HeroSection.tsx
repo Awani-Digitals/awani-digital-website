@@ -39,8 +39,8 @@ const HeroSection = () => {
       y: 0,
       transition: {
         ease: easeInOut,
-        delay: 0.6,
-        duration: 0.35,
+        delay: 0.8,
+        duration: 0.5,
       },
     },
   };
@@ -74,11 +74,11 @@ const HeroSection = () => {
       <div
         className={` grid place-items-center relative w-full h-screen
           z-10 heroBG
-          transition-all bg-transparent duration-300 ease-in
+          transition-all bg-transparent duration-700 ease-in-out
           ${
             startVisible
               ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-20"
+              : "opacity-0 translate-y-40"
           }
         `}
       >

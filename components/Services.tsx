@@ -131,6 +131,7 @@ const Services = () => {
         <motion.div
           variants={titleVariants}
           initial="initial"
+          viewport={{ once: true }}
           whileInView="animate"
           className="flex flex-col items-center gap-5"
         >
@@ -142,6 +143,7 @@ const Services = () => {
             className="w-24 h-1 mt-[-20px] bg-primary mx-auto"
             initial={{ width: 0, opacity: 0 }}
             whileInView={{ width: 96, opacity: 1 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.45, delay: 0.3 }}
           />
         </motion.div>
@@ -150,6 +152,7 @@ const Services = () => {
           variants={cardWrapperVariants}
           initial="initial"
           whileInView="animate"
+          viewport={{ once: true }}
           className="w-full mt-10 grid grid-cols-1 md:grid-cols-3 gap-10"
         >
           {serviceData.map((service, index) => (

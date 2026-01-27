@@ -31,7 +31,7 @@ const StatCounter: React.FC<StatCounterProps> = ({
 }) => {
   const [count, setCount] = useState(0);
   const countRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(countRef, { once: false, amount: 0.5 });
+  const isInView = useInView(countRef, { once: true });
 
   useEffect(() => {
     if (isInView) {
@@ -204,6 +204,7 @@ const AboutUs: React.FC = () => {
           <motion.h1
             initial={{ opacity: 0, y: 150 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.5, ease: easeIn }}
             className="text-5xl md:text-6xl font-bold text-gray-900 mb-4"
           >
@@ -215,6 +216,7 @@ const AboutUs: React.FC = () => {
             className="w-24 h-1 bg-primary mx-auto"
             initial={{ width: 0, opacity: 0 }}
             whileInView={{ width: 96, opacity: 1 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.4, ease: easeIn }}
           />
         </div>
@@ -230,6 +232,7 @@ const AboutUs: React.FC = () => {
           <motion.div
             className="relative"
             variants={leftTextVariants}
+            viewport={{ once: true }}
             initial="initial"
             whileInView="animate"
           >
@@ -253,6 +256,7 @@ const AboutUs: React.FC = () => {
                 scale: [1, 1.2, 1.3, 1.2, 1],
                 // rotate: [0, 180, 360],
               }}
+              viewport={{ once: true }}
               transition={{
                 duration: 4,
                 repeat: Infinity,
@@ -275,6 +279,7 @@ const AboutUs: React.FC = () => {
             className="flex flex-col justify-center"
             variants={rightTextWrapperVariants}
             initial="initial"
+            viewport={{ once: true }}
             whileInView="animate"
           >
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
@@ -375,6 +380,7 @@ const AboutUs: React.FC = () => {
           className="mt-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-12 text-center text-white"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <h3 className="text-3xl font-bold mb-4">

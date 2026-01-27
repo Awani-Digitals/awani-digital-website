@@ -66,7 +66,7 @@ const BlogsSection = () => {
               year: "numeric",
               month: "short",
               day: "numeric",
-            }
+            },
           ),
           category: post.category,
           image_url: post.image_url,
@@ -106,6 +106,7 @@ const BlogsSection = () => {
           variants={blogCardsWrapperVariant}
           initial="initial"
           whileInView="animate"
+          viewport={{ once: true }}
           className="w-full mt-10 flex justify-center gap-x-8 gap-y-10 flex-wrap "
         >
           {blogs.slice(0, 3).map((blog, index) => (

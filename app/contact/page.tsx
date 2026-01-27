@@ -51,9 +51,9 @@ const page = () => {
                 </p>
                 <a
                   href="tel:+2349069269821"
-                  className="text-foreground hover:text-primary transition-colors text-lg"
+                  className="text-foreground hover:text-primary transition-colors text-lg cursor-pointer "
                 >
-                  +23400000000
+                  +2347039443585
                 </a>
               </div>
             </div>
@@ -72,7 +72,7 @@ const page = () => {
 
       {/* WhatsApp Float Button */}
       <a
-        href="https://wa.me/2348183286302"
+        href="https://wa.me/+2347039443585"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-8 right-8 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 z-50"

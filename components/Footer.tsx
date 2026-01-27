@@ -131,10 +131,10 @@ const Footer = () => {
                 <Mail className="w-4 h-4 text-secondary" />
                 <span>info@awanidigitals.com</span>
               </div>
-              {/* <div className="flex items-center gap-3 text-secondary text-sm">
+              <div className="flex items-center gap-3 text-secondary text-sm">
                 <Phone className="w-4 h-4 text-secondary" />
-                <span>+1 (555) 123-4567</span>
-              </div> */}
+                <span>+2347039443585</span>
+              </div>
               <div className="flex items-center gap-3 text-secondary text-sm">
                 <MapPin className="w-4 h-4 text-secondary" />
                 <span>Lagos, Nigeria</span>
@@ -225,6 +225,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <motion.div
           variants={itemVariants}
+          viewport={{ once: true }}
           className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4"
         >
           <p className="text-white text-sm flex items-center gap-2">

@@ -41,7 +41,7 @@ const StatCounter: React.FC<StatCounterProps> = ({
 }) => {
   const [count, setCount] = useState(0);
   const countRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(countRef, { once: false, amount: 0.5 });
+  const isInView = useInView(countRef, { once: true, amount: 0.5 });
 
   useEffect(() => {
     if (isInView) {
@@ -388,6 +388,7 @@ const AboutPage: React.FC = () => {
             <motion.h1
               initial={{ opacity: 0, y: 120 }}
               whileInView={{ opacity: 1, y: 0, transition: { duration: 0.6 } }}
+              viewport={{ once: true }}
               className="text-5xl md:text-6xl font-bold text-white mb-4"
             >
               The Mind
@@ -398,6 +399,7 @@ const AboutPage: React.FC = () => {
               className="w-24 h-1 bg-primary mx-auto"
               initial={{ width: 0, opacity: 0 }}
               whileInView={{ width: 96, opacity: 1 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.3 }}
             />
           </motion.div>

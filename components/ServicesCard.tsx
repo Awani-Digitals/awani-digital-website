@@ -6,8 +6,8 @@ import { cubicBezier, easeInOut, motion } from "motion/react";
 // VARIANTS
 const cardVariants = {
   initial: {
-    opacity: 0.5,
-    scale: 0.8,
+    opacity: 0,
+    scale: 0.3,
   },
 
   animate: {
@@ -33,6 +33,7 @@ const ServicesCard = ({
   return (
     <motion.div
       variants={cardVariants}
+      viewport={{ once: true }}
       whileHover={{
         scale: 1.05,
         transition: { duration: 0.2, ease: "easeInOut" },

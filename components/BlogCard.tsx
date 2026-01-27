@@ -49,6 +49,7 @@ export function BlogCard({
   return (
     <motion.div
       variants={BlogCardVariants}
+      viewport={{ once: true }}
       className="group bg-[#faf5ff] rounded-lg overflow-hidden shadow-lg max-w-[350px] w-full relative"
     >
       <Link
