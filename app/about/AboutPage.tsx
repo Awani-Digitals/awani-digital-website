@@ -193,7 +193,7 @@ const AboutPage: React.FC = () => {
 
   const stats = [
     { value: 20, label: "Clients Served", suffix: "+" },
-    { value: 3, label: "Impressions Driven", suffix: "M+" },
+    { value: 20, label: "Impressions Driven", suffix: "M+" },
     { value: 50, label: "Organic Community Built", suffix: "K+" },
     { value: 2, label: "Leads Generated", suffix: "K+" },
   ];
