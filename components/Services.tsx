@@ -135,7 +135,7 @@ const Services = () => {
           whileInView="animate"
           className="flex flex-col items-center gap-5"
         >
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 text-center ">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 text-center ">
             What We Can Do
             <span className="block text-primary text-center ">For You</span>
           </h1>

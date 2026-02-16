@@ -222,7 +222,7 @@ const AboutPage: React.FC = () => {
             initial={{ opacity: 0, y: -100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-5xl md:text-6xl font-bold text-gray-900 mb-4"
+            className="text-4xl md:text-6xl font-bold text-gray-900 mb-4"
           >
             We Produce Amazing
             <span className="block text-primary ">Results</span>
@@ -372,7 +372,7 @@ const AboutPage: React.FC = () => {
         {/* Our Team */}
       </div>
 
-      <div className="w-full flex flex-col items-center bg-background px-4 py-[80px] rounded-[25px] ">
+      <div className="w-full flex flex-col items-center bg-background px-4 py-[80px] rounded-[15px] md:rounded-[25px] ">
         <div className="w-full max-w-[1200px]  ">
           <motion.div className="text-center w-full mb-16 flex flex-col ">
             {/* <motion.div
@@ -389,7 +389,7 @@ const AboutPage: React.FC = () => {
               initial={{ opacity: 0, y: 120 }}
               whileInView={{ opacity: 1, y: 0, transition: { duration: 0.6 } }}
               viewport={{ once: true }}
-              className="text-5xl md:text-6xl font-bold text-white mb-4"
+              className="text-4xl md:text-6xl font-bold text-white mb-4"
             >
               The Mind
               <span className="block text-primary ">Behind the Movement</span>

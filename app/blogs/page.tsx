@@ -90,7 +90,7 @@ const page = () => {
   return (
     <div className="w-full grid place-items-center mt-10 ">
       <div className="w-full h-[400px] our_blog flex flex-col justify-center items-center ">
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 text-center ">
+        <h1 className="text-4xl md:text-7xl font-bold text-white mb-4 text-center ">
           Our Blog
         </h1>
         <p className="text-white max-w-[800px] text-center text-lg font-medium">

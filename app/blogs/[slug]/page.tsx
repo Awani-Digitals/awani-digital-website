@@ -111,7 +111,7 @@ export default function page({ params }: BlogDetailPageProps) {
               </span>
             </div>
 
-            <h1 className="text-[#faf5ff] text-5xl font-bold mb-6 leading-tight">
+            <h1 className="text-[#faf5ff] text-4xl font-bold mb-6 leading-tight">
               {blog.title}
             </h1>
 

@@ -263,7 +263,7 @@ export const FullServices = () => {
           className=" w-full flex flex-col items-center justify-center bg-background py-20 px-4"
         >
           <div className="text-center max-w-[1200px] w-full mb-16">
-            <motion.h2 className="text-3xl md:text-5xl font-bold mb-4">
+            <motion.h2 className="text-3xl md:text-4xl font-bold mb-4">
               Our <span className="text-primary">Services</span>
             </motion.h2>
             <p className="max-w-2xl mx-auto text-lg opacity-80">

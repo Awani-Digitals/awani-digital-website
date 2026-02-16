@@ -37,7 +37,7 @@ const page = () => {
               year: "numeric",
               month: "short",
               day: "numeric",
-            }
+            },
           ),
           category: post.category,
           image_url: post.image_url,
@@ -103,7 +103,7 @@ const page = () => {
   return (
     <div className="w-full grid place-items-center pt-[130px] pb-[100px] ">
       <div className="max-w-[1200px] w-full flex flex-col gap-10 items-center px-4 ">
-        <h1 className="w-full relative text-3xl md:text-5xl font-bold text-white mb-12 text-center  ">
+        <h1 className="w-full relative text-3xl md:text-4xl font-bold text-white mb-12 text-center  ">
           Manage Blogs
           <span className="absolute w-[100px] h-1.5 rounded-2xl bg-primary left-1/2 translate-x-[-50%] bottom-[-26px]  "></span>
         </h1>

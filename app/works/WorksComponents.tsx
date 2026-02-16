@@ -69,7 +69,7 @@ const WorksCards = () => {
     <div className="w-full bg-background px-4 grid place-items-center  ">
       <div className="max-w-[1200px] w-full flex flex-col gap-10 items-center pt-[110px] py-20">
         <div className="flex flex-col items-center gap-5">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 text-center ">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 text-center ">
             Results We Have
             <span className="block text-primary text-center ">Delivered</span>
           </h1>
@@ -89,7 +89,7 @@ const WorksCards = () => {
             make people care and take action.
           </p>
         </div>
-        <div className="w-full mt-10 grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="w-full mt-10 grid place-items-center grid-cols-1 md:grid-cols-3 gap-12">
           {worksData.map((work, index) => (
             <WorksCard key={index} {...work} />
           ))}

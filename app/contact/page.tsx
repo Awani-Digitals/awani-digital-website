@@ -9,7 +9,7 @@ const page = () => {
       <section className="max-w-[1200px] w-full gap-10 grid md:grid-cols-2 grid-cols-1   py-16 lg:py-24">
         <div className="space-y-12  animate-fade-in">
           <div className="space-y-4">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+            <h1 className="text-4xl md:text-4xl lg:text-6xl font-bold leading-tight">
               Reach <span className="text-primary">Out</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-md">

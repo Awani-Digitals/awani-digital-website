@@ -31,7 +31,7 @@ const page = ({ params }: JobPageProps) => {
         {/* subtle dark overlay for contrast */}
         <div className="absolute inset-0 bg-black/50 transition-opacity duration-500" />
         <div className="relative max-w-[1200px] w-full z-10 py-8 flex flex-col h-full justify-end text-white">
-          <h1 className="text-4xl md:text-5xl font-bold">{work.title}</h1>
+          <h1 className="text-4xl md:text-4xl font-bold">{work.title}</h1>
           <p className="mt-1 max-w-3xl opacity-90">{work.industry}</p>
         </div>
       </div>

@@ -206,7 +206,7 @@ const AboutUs: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, ease: easeIn }}
-            className="text-5xl md:text-6xl font-bold text-gray-900 mb-4"
+            className="text-4xl md:text-6xl font-bold text-gray-900 mb-4"
           >
             We Produce Amazing
             <span className="block text-primary ">Results</span>
