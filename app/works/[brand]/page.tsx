@@ -35,7 +35,7 @@ const page = ({ params }: JobPageProps) => {
           <p className="mt-1 max-w-3xl opacity-90">{work.industry}</p>
         </div>
       </div>
-      <div className="my-20  bg-background rounded-lg px-20 py-10">
+      <div className="my-20  bg-background rounded-lg lg:px-20 px-6 py-10">
         <div className="  max-w-[1200px] w-full flex flex-col gap-10 ">
           <div className="flex flex-col gap-2  ">
             <h3 className="text-2xl text-primary font-medium">
