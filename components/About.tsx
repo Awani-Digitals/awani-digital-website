@@ -136,8 +136,8 @@ const AboutUs: React.FC = () => {
 
   const stats = [
     { value: 20, label: "Clients Served", suffix: "+" },
-    { value: 20, label: "Impressions Driven", suffix: "M+" },
-    { value: 50, label: "Organic Community Built", suffix: "K+" },
+    { value: 20, label: "Monthly Impressions ", suffix: "M+" },
+    { value: 100, label: "Organic Community", suffix: "K+" },
     { value: 2, label: "Leads Generated", suffix: "K+" },
   ];
 
@@ -291,8 +291,9 @@ const AboutUs: React.FC = () => {
               className="text-gray-600 mb-6 leading-relaxed"
             >
               Awani Digitals is a leading integrated marketing communications
-              agency in Nigeria, helping brands grow through strategy,
-              creativity, and innovation.
+              agency in Nigeria that helps growth-focused brands achieve
+              clarity, visibility, and measurable business growth through
+              strategy-led creativity and execution.
             </motion.p>
 
             <motion.p
@@ -300,11 +301,11 @@ const AboutUs: React.FC = () => {
               className="text-gray-600 mb-6 leading-relaxed"
             >
               {" "}
-              We specialize in digital marketing, brand strategy, social media
-              management, advertising, and experiential marketing that deliver
-              measurable business results. From concept to execution, we create
-              campaigns that connect brands with people, spark conversations,
-              and drive conversion across multiple platforms.
+              We specialise in building brands through digital marketing,
+              content and brand development, experience and design, and
+              traditional and experiential marketing. From concept to execution,
+              we create campaigns that connect brands with people, spark
+              conversations, and drive conversion across multiple platforms.
             </motion.p>
 
             <motion.p
