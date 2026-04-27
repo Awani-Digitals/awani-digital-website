@@ -300,7 +300,7 @@ const AboutUs: React.FC = () => {
               variants={rightTextVariants}
               className="text-gray-600 mb-6 leading-relaxed"
             >
-              {" "}
+              {""}
               We specialise in building brands through digital marketing,
               content and brand development, experience and design, and
               traditional and experiential marketing. From concept to execution,
